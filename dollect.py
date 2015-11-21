@@ -14,8 +14,11 @@ def lva():
     print string1 + string7 + str(i) + string2
     c = string3  + str(i)  + string4 
     d =  str(i) + string2
-    filename = wget.download(c+d)
-    print "\nCompleted\n"
+    try:       
+        filename = wget.download(c+d)
+        print "\nCompleted\n"
+    except:
+        print "volume is from 1 to 12"
     
 def lvb():
     string5 = "/Linux-Voice-Issue-0"
