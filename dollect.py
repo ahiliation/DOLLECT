@@ -62,21 +62,28 @@ def oreilly():
         print string1 + f 
         filename = wget.download(e+f)
         print ("\n Completed \n")
-if sys.argv[1] == "lv":
-    print "\n All LinuxVoice Download \n"
-    for i in xrange(12):
-        if i == 0:
-            continue
-        if i <= 9:
+
+if len(sys.argv) > 1:
+    if sys.argv[1] == "lv" and len(sys.argv) == 3:
+        if int(sys.argv[2]) <= 9:
+            print "hello"
+            i = int(sys.argv[2])
             lva()
-        else:
-            lvb()
-        if sys.argv[2] <= 9:
-            lva()
-        else:
+            sys.exit(0)
+        elif int(sys.argv[2]) <= 12:
             #debug
+            i = int(sys.argv[2])
             lvb()
-            
-elif sys.argv[1] == "oreilly":
-    oreilly()
-    
+            sys.exit(0)
+    elif sys.argv[1] == "oreilly":
+        oreilly()
+    else:
+        print "\n All LinuxVoice Download \n"
+        for i in xrange(12):
+            if i == 0:
+                continue
+            if i <= 9:
+                lva()
+            else:
+                lvb()
+                                                            
