@@ -45,7 +45,7 @@ def lvb():
     a = string6 + str(i)  + string5 
     b = str(i) + string2
     try:
-        if i <= 15:
+        if i <= 16:
             print string1 + string8  + str(i) + string2
             filename = wget.download(a+b)
             print "\nCompleted\n"
@@ -70,7 +70,7 @@ if len(sys.argv) > 1:
             i = int(sys.argv[2])
             lva()
             sys.exit(0)
-        elif int(sys.argv[2]) <= 15:
+        elif int(sys.argv[2]) <= 16:
             #debug
             i = int(sys.argv[2])
             lvb()
@@ -79,7 +79,7 @@ if len(sys.argv) > 1:
         oreilly()
     else:
         print "\n All LinuxVoice Download \n"
-        for i in xrange(15):
+        for i in xrange(16):
             if i == 0:
                 continue
             if i <= 9:
