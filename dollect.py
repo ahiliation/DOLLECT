@@ -30,23 +30,23 @@ def decimal_roman(count):
 #[debug]    print input
 #[debug]    print type(input)
     roman = []
-    del roman[:]
-    while input > 1000:
+#    del roman[:]
+    while input >= 1000:
         roman.append("M")
         input -= 1000
-    while input > 500:
+    while input >= 500:
         roman.append("D")
         input -= 500
-    while input > 100:
+    while input >= 100:
         roman.append("C")
         input -= 100
-    while input > 50:
+    while input >= 50:
         roman.append("L")
         input -= 50
-    while input > 10:
+    while input >= 10:
         roman.append("X")
         input -= 10
-    while input > 5:
+    while input >= 5:
         roman.append("V")
         input -= 5
     while input >= 1:
