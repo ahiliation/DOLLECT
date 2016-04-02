@@ -4,7 +4,7 @@ import sys
 
 global stringa
 global stringb
-stringa = "[transferring...]  "
+stringa = "(TRANS...> "
 stringb = ".pdf"
 
 off = list()
@@ -27,26 +27,26 @@ off.append('getting-started-with-innersource.pdf')
 def lva():
     stringc = "http://www.linuxvoice.com/issues/00"
     stringd = "/Linux-Voice-Issue-00"
-    string7 = "Linux-Voice-Issue-00"
+    stringg = "Linux-Voice-Issue-00"
     c = stringc  + str(i)  + stringd 
     d =  str(i) + stringb
     try:
         if i >= 1:
-            print stringa + string7 + str(i) + stringb
+            print stringa + stringg + str(i) + stringb
             filename = wget.download(c+d)
             print "\nCompleted\n"
     except:
         print "\n Did something else happen ?  \n"
     
 def lvb():
-    string5 = "/Linux-Voice-Issue-0"
-    string6 = "http://www.linuxvoice.com/issues/0"
-    string8 = "Linux-Voice-Issue-0"
-    a = string6 + str(i)  + string5 
+    stringe = "/Linux-Voice-Issue-0"
+    stringf = "http://www.linuxvoice.com/issues/0"
+    stringh = "Linux-Voice-Issue-0"
+    a = stringf + str(i)  + stringe 
     b = str(i) + stringb
     try:
         if i <= 16:
-            print stringa + string8  + str(i) + stringb
+            print stringa + stringh  + str(i) + stringb
             filename = wget.download(a+b)
             print "\nCompleted\n"
     except:
@@ -54,9 +54,9 @@ def lvb():
 
 
 def oreilly():
-    string9  = "https://www.oreilly.com/"
-    stringa0 = "programming/free/files/"
-    e = string9 + stringa0
+    stringi  = "https://www.oreilly.com/"
+    stringj = "programming/free/files/"
+    e = stringi + stringj
     for count in xrange(len(off)):
         f = off[count]
         print stringa + f 
@@ -78,7 +78,7 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "oreilly":
         oreilly()
     else:
-        print "\n All LinuxVoice Download \n"
+        print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(16):
             if i == 0:
                 continue
