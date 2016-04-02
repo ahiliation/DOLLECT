@@ -2,10 +2,10 @@ import wget
 import sys
 
 
-global string1
-global string2
-string1 = "Retrieving...  "
-string2 = ".pdf"
+global stringa
+global stringb
+stringa = "[transferring...]  "
+stringb = ".pdf"
 
 off = list()
 off.append('how-to-make-mistakes-in-python.pdf')
@@ -25,14 +25,14 @@ off.append('migrating-cloud-native-application-architectures.pdf')
 off.append('getting-started-with-innersource.pdf')
 
 def lva():
-    string3 = "http://www.linuxvoice.com/issues/00"
-    string4 = "/Linux-Voice-Issue-00"
+    stringc = "http://www.linuxvoice.com/issues/00"
+    stringd = "/Linux-Voice-Issue-00"
     string7 = "Linux-Voice-Issue-00"
-    c = string3  + str(i)  + string4 
-    d =  str(i) + string2
+    c = stringc  + str(i)  + stringd 
+    d =  str(i) + stringb
     try:
         if i >= 1:
-            print string1 + string7 + str(i) + string2
+            print stringa + string7 + str(i) + stringb
             filename = wget.download(c+d)
             print "\nCompleted\n"
     except:
@@ -43,10 +43,10 @@ def lvb():
     string6 = "http://www.linuxvoice.com/issues/0"
     string8 = "Linux-Voice-Issue-0"
     a = string6 + str(i)  + string5 
-    b = str(i) + string2
+    b = str(i) + stringb
     try:
         if i <= 16:
-            print string1 + string8  + str(i) + string2
+            print stringa + string8  + str(i) + stringb
             filename = wget.download(a+b)
             print "\nCompleted\n"
     except:
@@ -55,11 +55,11 @@ def lvb():
 
 def oreilly():
     string9  = "https://www.oreilly.com/"
-    string10 = "programming/free/files/"
-    e = string9 + string10
+    stringa0 = "programming/free/files/"
+    e = string9 + stringa0
     for count in xrange(len(off)):
         f = off[count]
-        print string1 + f 
+        print stringa + f 
         filename = wget.download(e+f)
         print ("\n Completed \n")
 
