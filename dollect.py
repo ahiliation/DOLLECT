@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import wget
 import sys
-
+import os
 
 global stringa
 global stringb
@@ -24,6 +25,36 @@ off.append('software-architecture-patterns.pdf')
 off.append('migrating-cloud-native-application-architectures.pdf')
 off.append('getting-started-with-innersource.pdf')
 
+def decimal_roman(count):
+    input = int(count)
+#[debug]    print input
+#[debug]    print type(input)
+    roman = []
+    del roman[:]
+    while input > 1000:
+        roman.append("M")
+        input -= 1000
+    while input > 500:
+        roman.append("D")
+        input -= 500
+    while input > 100:
+        roman.append("C")
+        input -= 100
+    while input > 50:
+        roman.append("L")
+        input -= 50
+    while input > 10:
+        roman.append("X")
+        input -= 10
+    while input > 5:
+        roman.append("V")
+        input -= 5
+    while input >= 1:
+        roman.append("I")
+        input -= 1
+    back = ''.join(roman)
+    return back
+
 def lva():
     stringc = "http://www.linuxvoice.com/issues/00"
     stringd = "/Linux-Voice-Issue-00"
@@ -32,7 +63,9 @@ def lva():
     d =  str(i) + stringb
     try:
         if i >= 1:
-            print stringa + stringg + str(i) + stringb
+#           print stringa  + stringg + str(i) + stringb
+            converted = decimal_roman(i)
+            print stringa + " " +"LINUXVOICE" + " " + converted 
             filename = wget.download(c+d)
             print "\nCompleted\n"
     except:
@@ -46,7 +79,9 @@ def lvb():
     b = str(i) + stringb
     try:
         if i <= 16:
-            print stringa + stringh  + str(i) + stringb
+#           print stringa + stringh  + str(i) + stringb
+            convertednext = decimal_roman(i)
+            print stringa + " " +"LINUXVOICE" + " " + convertednext
             filename = wget.download(a+b)
             print "\nCompleted\n"
     except:
@@ -66,7 +101,7 @@ def oreilly():
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
         if int(sys.argv[2]) <= 9:
-            print "hello"
+#            print "hello"
             i = int(sys.argv[2])
             lva()
             sys.exit(0)
