@@ -59,12 +59,22 @@ def decimal_roman(count):
 def tldp():
     try:
         print stringa
-        print "GNU/Linux HOWTOs\n"
+        print "GNU/Linux HOWTOs"
         filename = wget.download("http://tldp.org/Linux-HOWTO-pdf.tar.gz")
         print "\nCompleted\n"
     except:
         print "\n Did something else happen ? \n"
+
+
+def floss():
+    try:
+        print stringa
+        print "FLOSS manuals"
+        filename = wget.download("https://en.flossmanuals.net/_booki/command-line/command-line.pdf") 
+        print "\nCompleted\n"
         
+    except:
+        print "\n Did something else happen ? \n"
 
 
 def lva():
@@ -127,6 +137,10 @@ if len(sys.argv) > 1:
         
     elif sys.argv[1] == "tldp":
         tldp()
+        
+    elif sys.argv[1] == "floss":
+        floss()
+    
     else:
         print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(16):
