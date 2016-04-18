@@ -55,6 +55,18 @@ def decimal_roman(count):
     back = ''.join(roman)
     return back
 
+
+def tldp():
+    try:
+        print stringa
+        print "GNU/Linux HOWTOs\n"
+        filename = wget.download("http://tldp.org/Linux-HOWTO-pdf.tar.gz")
+        print "\nCompleted\n"
+    except:
+        print "\n Did something else happen ? \n"
+        
+
+
 def lva():
     stringc = "http://www.linuxvoice.com/issues/00"
     stringd = "/Linux-Voice-Issue-00"
@@ -112,6 +124,9 @@ if len(sys.argv) > 1:
             sys.exit(0)
     elif sys.argv[1] == "oreilly":
         oreilly()
+        
+    elif sys.argv[1] == "tldp":
+        tldp()
     else:
         print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(16):
