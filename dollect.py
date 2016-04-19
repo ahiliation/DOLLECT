@@ -56,6 +56,18 @@ def decimal_roman(count):
     return back
 
 
+def links():
+    try:
+        print "Links"
+        print "http://learnyouahaskell.com/chapters"
+        print "http://www.minimalprogramming.org/html/index.html"
+        print "http://book.realworldhaskell.org/read/"
+        print "http://dev.stephendiehl.com/fun/"
+        print "http://c.codeindepth.com/"
+    except:
+        print "\n Did something else happen ? \n"
+    
+
 def tldp():
     try:
         print stringa
@@ -140,6 +152,9 @@ if len(sys.argv) > 1:
         
     elif sys.argv[1] == "floss":
         floss()
+
+    elif sys.argv[1] == "links":
+        links()
     
     else:
         print "\n LINUXVOICE COMPLETE \n"
