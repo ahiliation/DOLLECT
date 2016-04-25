@@ -112,7 +112,7 @@ def lvb():
     a = stringf + str(i)  + stringe 
     b = str(i) + stringb
     try:
-        if i <= 16:
+        if i <= 17:
 #           print stringa + stringh  + str(i) + stringb
             convertednext = decimal_roman(i)
             print stringa + " " +"LINUXVOICE" + " " + convertednext
@@ -139,7 +139,7 @@ if len(sys.argv) > 1:
             i = int(sys.argv[2])
             lva()
             sys.exit(0)
-        elif int(sys.argv[2]) <= 16:
+        elif int(sys.argv[2]) <= 17:
             #debug
             i = int(sys.argv[2])
             lvb()
@@ -158,7 +158,7 @@ if len(sys.argv) > 1:
     
     else:
         print "\n LINUXVOICE COMPLETE \n"
-        for i in xrange(16):
+        for i in xrange(17):
             if i == 0:
                 continue
             if i <= 9:
