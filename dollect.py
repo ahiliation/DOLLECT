@@ -153,9 +153,10 @@ def oreilly():
     stringi  = "https://www.oreilly.com/"
     stringj = "programming/free/files/"
     e = stringi + stringj
+    print stringa,
     for count in xrange(len(off)):
         f = off[count]
-        print stringa + f 
+        print f 
         filename = wget.download(e+f)
         print ("\n Completed \n")
 
