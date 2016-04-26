@@ -56,13 +56,14 @@ def decimal_roman(count):
     return back
 
 def connectivity():
-    try:
         check = "https://www.google.co.in"
         print "Internet Connectivity.........",
-        data = urllib.urlopen(check)
-        print "Available"
-    except:
-        print "No Connectivity\n"
+        try:
+            data = urllib.urlopen(check)
+            print "Available"
+        except:
+            print "Failed\n"
+            sys.exit(0)
 
 
 
