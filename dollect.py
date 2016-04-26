@@ -2,7 +2,7 @@
 import wget
 import sys
 import os
-
+import urllib
 global stringa
 global stringb
 stringa = "(TRANS...> "
@@ -55,7 +55,33 @@ def decimal_roman(count):
     back = ''.join(roman)
     return back
 
+def connectivity():
+    try:
+        check = "https://www.google.co.in"
+        print "Internet Connectivity.........",
+        data = urllib.urlopen(check)
+        print "Available"
+    except:
+        print "No Connectivity\n"
 
+
+
+def gcc():
+    try:
+        print stringa
+        print "GCC Documentation"
+        print "GCC Manual"
+        filename = wget.download("https://gcc.gnu.org/onlinedocs/gcc.pdf")
+        print "\nGNU Fortran Manual"
+        filename = wget.download("https://gcc.gnu.org/onlinedocs/gfortran.pdf")
+        print "\nGCJ Manual"
+        filename = wget.download("https://gcc.gnu.org/onlinedocs/gcj.pdf")
+        print "\nCPP Manual"
+        filename = wget.download("https://gcc.gnu.org/onlinedocs/cpp.pdf")
+        print "\nCompleted\n"
+    except:
+        print "\n Did something else happen ? \n"
+        
 def links():
     try:
         print "Links"
@@ -64,6 +90,7 @@ def links():
         print "http://book.realworldhaskell.org/read/"
         print "http://dev.stephendiehl.com/fun/"
         print "http://c.codeindepth.com/"
+        print "https://gcc.gnu.org/faq.html"
     except:
         print "\n Did something else happen ? \n"
     
@@ -132,37 +159,49 @@ def oreilly():
         filename = wget.download(e+f)
         print ("\n Completed \n")
 
+
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
         if int(sys.argv[2]) <= 9:
 #            print "hello"
             i = int(sys.argv[2])
+            connectivity()
             lva()
             sys.exit(0)
         elif int(sys.argv[2]) <= 17:
             #debug
             i = int(sys.argv[2])
+            connectivity()
             lvb()
             sys.exit(0)
     elif sys.argv[1] == "oreilly":
+        connectivity()
         oreilly()
         
     elif sys.argv[1] == "tldp":
+        connectivity()
         tldp()
         
     elif sys.argv[1] == "floss":
+        connectivity()
         floss()
 
     elif sys.argv[1] == "links":
+        connectivity()
         links()
-    
+        
+    elif sys.argv[1] == "gcc":
+        connectivity()
+        gcc()
     else:
         print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(17):
             if i == 0:
                 continue
             if i <= 9:
+                connectivity()
                 lva()
             else:
+                connectivity()
                 lvb()
                                                             
