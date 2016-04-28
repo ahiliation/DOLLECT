@@ -66,6 +66,27 @@ def connectivity():
             sys.exit(0)
 
 
+def gdb():
+    try:
+        default = "all"
+        print stringa
+        print "GDB Documentation"
+        print "GDB User Manual"
+        filename = wget.download("http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz")
+        print "\nThe Heisenberg Debugging Technology"
+        print "Slides/Paper/Enter(for both)"
+        decision = raw_input()
+        if decision == "Paper":
+            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf")
+        elif decision == "Slides":
+            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf")
+        else:
+            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf")
+            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf")
+        print "\nCompleted\n"
+    except:
+        print "\n Did something else happen ? \n"
+
 
 def gcc():
     try:
@@ -195,6 +216,11 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "gcc":
         connectivity()
         gcc()
+
+    elif sys.argv[1] == "gdb":
+        connectivity()
+        gdb()
+        
     else:
         print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(17):
