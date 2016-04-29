@@ -3,6 +3,7 @@ import wget
 import sys
 import os
 import urllib
+from BeautifulSoup import *
 
 global stringa
 global stringb
@@ -119,9 +120,17 @@ def links():
         print "http://www.gnu.org/software/emacs/manual/html_node/elisp/index.html"
         print "\nLink Opener/Tester"
         link = raw_input()
-        fhand = urllib.urlopen(link)
-        for line in fhand:
-            print line.rstrip()
+        html = urllib.urlopen(link)
+       # print page.read()
+        soup = BeautifulSoup(html)
+        tags = soup('body')
+        print tags
+     #   print dir(body.text)
+      #  content = body.text()
+     #   print type(content)
+     #   print content
+     #   for line in fhand:
+      #      print line.rstrip()
     except:
         print "\n Did something else happen ? \n"
     
