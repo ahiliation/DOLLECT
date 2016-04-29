@@ -3,6 +3,7 @@ import wget
 import sys
 import os
 import urllib
+
 global stringa
 global stringb
 stringa = "(TRANS...> "
@@ -120,7 +121,7 @@ def links():
         link = raw_input()
         fhand = urllib.urlopen(link)
         for line in fhand:
-            print line
+            print line.rstrip()
     except:
         print "\n Did something else happen ? \n"
     
