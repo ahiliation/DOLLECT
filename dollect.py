@@ -113,6 +113,14 @@ def links():
         print "http://dev.stephendiehl.com/fun/"
         print "http://c.codeindepth.com/"
         print "https://gcc.gnu.org/faq.html"
+        print "http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html"
+        print "http://www.gnu.org/software/emacs/manual/html_node/eintr/index.html"
+        print "http://www.gnu.org/software/emacs/manual/html_node/elisp/index.html"
+        print "\nLink Opener/Tester"
+        link = raw_input()
+        fhand = urllib.urlopen(link)
+        for line in fhand:
+            print line
     except:
         print "\n Did something else happen ? \n"
     
