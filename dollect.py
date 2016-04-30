@@ -10,6 +10,8 @@ global stringb
 stringa = "(TRANS...> "
 stringb = ".pdf"
 
+# off  = (oreilly free files)
+
 off = list()
 off.append('how-to-make-mistakes-in-python.pdf')
 off.append('object-oriented-vs-functional-programming.pdf')
@@ -68,24 +70,34 @@ def connectivity():
             sys.exit(0)
 
 
+# gdb = dict() 
+# gdb['1'] = "http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz"
+# gdb['2'] = "https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf"
+# gdb['3'] = "https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf"
+            
+
 def gdb():
     try:
-        default = "all"
+        gdb = dict() 
+        gdb['1'] = "http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz"
+        gdb['2'] = "https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf"
+        gdb['3'] = "https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf"
         print stringa
         print "GDB Documentation"
         print "GDB User Manual"
-        filename = wget.download("http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz")
+        filename = wget.download(gdb['1'])
         print "\nThe Heisenberg Debugging Technology"
         print "Slides/Paper/Enter(for both)"
         decision = raw_input()
         if decision == "Paper":
-            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf")
+            filename = wget.download(gdb['2'])
         elif decision == "Slides":
-            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf")
+            filename = wget.download(gdb['3'])
         else:
-            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf")
-            filename = wget.download("https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf")
-        print "\nCompleted\n"
+            for key in range(2,4):
+#                print key
+                filename = wget.download(gdb[str(key)])
+            print "\nCompleted\n"
     except:
         print "\n Did something else happen ? \n"
 
