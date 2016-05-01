@@ -10,24 +10,34 @@ global stringb
 stringa = "(TRANS...> "
 stringb = ".pdf"
 
-# off  = (oreilly free files)
 
-off = list()
-off.append('how-to-make-mistakes-in-python.pdf')
-off.append('object-oriented-vs-functional-programming.pdf')
-off.append('analyzing-visualizing-data-f-sharp.pdf')
-off.append('java-the-legend.pdf')
-off.append('why-rust.pdf')
-off.append('introducing-java-8.pdf')
-off.append('engineering-managers-guide-design-patterns.pdf')
-off.append('azure-for-developers.pdf')
-off.append('c++-today.pdf')
-off.append('functional-programming-python.pdf')
-off.append('python-in-education.pdf')
-off.append('from-future-import-python.pdf')
-off.append('software-architecture-patterns.pdf')
-off.append('migrating-cloud-native-application-architectures.pdf')
-off.append('getting-started-with-innersource.pdf')
+programming = list()
+programming.append('how-to-make-mistakes-in-python.pdf')
+programming.append('object-oriented-vs-functional-programming.pdf')
+programming.append('analyzing-visualizing-data-f-sharp.pdf')
+programming.append('java-the-legend.pdf')
+programming.append('why-rust.pdf')
+programming.append('introducing-java-8.pdf')
+programming.append('engineering-managers-guide-design-patterns.pdf')
+programming.append('azure-for-developers.pdf')
+programming.append('c++-today.pdf')
+programming.append('functional-programming-python.pdf')
+programming.append('python-in-education.pdf')
+programming.append('from-future-import-python.pdf')
+programming.append('software-architecture-patterns.pdf')
+programming.append('migrating-cloud-native-application-architectures.pdf')
+programming.append('getting-started-with-innersource.pdf')
+
+data = list()
+data.append('evaluating-machine-learning-models.pdf')
+data.append('going-pro-in-data-science.pdf')
+data.append('ten-signs-of-data-science-maturity.pdf')
+data.append('what-is-data-science.pdf')
+data.append('data-driven.pdf')
+data.append('what-is-database-design-anyway.pdf')
+
+
+
 
 def decimal_roman(count):
     input = int(count)
@@ -201,16 +211,30 @@ def lvb():
         print "\n Did something else happen ?  \n"
 
 
-def oreilly():
-    stringi  = "https://www.oreilly.com/"
-    stringj = "programming/free/files/"
-    e = stringi + stringj
-    print stringa,
-    for count in xrange(len(off)):
-        f = off[count]
-        print f 
-        filename = wget.download(e+f)
+def oreilly(accept):
+    stringi = "https://www.oreilly.com/"
+    if accept == "programming":
+        stringj = "programming/free/files/"
+        e = stringi + stringj
+        print stringa,
+        for count in xrange(len(programming)):
+            f = programming[count]
+            print f + "\n"
+            filename = wget.download(e+f)
+            print "\n"
         print ("\n Completed \n")
+        sys.exit(0)
+    elif accept == "data":
+        stringk = "data/free/files/"
+        datac = stringi + stringk
+        print stringa
+        for count in xrange(len(data)):
+            dataf = data[count]
+            print dataf
+            filename = wget.download(datac + dataf)
+            print "\n"
+        print ("\n Completed \n")
+        sys.exit(0)
 
 
 if len(sys.argv) > 1:
@@ -229,7 +253,8 @@ if len(sys.argv) > 1:
             sys.exit(0)
     elif sys.argv[1] == "oreilly":
         connectivity()
-        oreilly()
+        selection = raw_input('programming/data \n')
+        oreilly(selection)
         
     elif sys.argv[1] == "tldp":
         connectivity()
