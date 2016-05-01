@@ -79,24 +79,24 @@ def connectivity():
 def gdb():
     try:
         gdb = dict() 
-        gdb['1'] = "http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz"
-        gdb['2'] = "https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf"
-        gdb['3'] = "https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf"
+        gdb[1] = "http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz"
+        gdb[2] = "https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf"
+        gdb[3] = "https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf"
         print stringa
         print "GDB Documentation"
         print "GDB User Manual"
-        filename = wget.download(gdb['1'])
+        filename = wget.download(gdb[1])
         print "\nThe Heisenberg Debugging Technology"
         print "Slides/Paper/Enter(for both)"
         decision = raw_input()
         if decision == "Paper":
-            filename = wget.download(gdb['2'])
+            filename = wget.download(gdb[2])
         elif decision == "Slides":
-            filename = wget.download(gdb['3'])
+            filename = wget.download(gdb[3])
         else:
             for key in range(2,4):
 #                print key
-                filename = wget.download(gdb[str(key)])
+                filename = wget.download(gdb[key])
             print "\nCompleted\n"
     except:
         print "\n Did something else happen ? \n"
