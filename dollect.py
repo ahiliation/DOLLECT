@@ -37,8 +37,6 @@ data.append('data-driven.pdf')
 data.append('what-is-database-design-anyway.pdf')
 
 
-
-
 def decimal_roman(count):
     input = int(count)
 #[debug]    print input
@@ -78,13 +76,6 @@ def connectivity():
         except:
             print "Failed\n"
             sys.exit(0)
-
-
-# gdb = dict() 
-# gdb['1'] = "http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz"
-# gdb['2'] = "https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf"
-# gdb['3'] = "https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf"
-            
 
 def gdb():
     try:
