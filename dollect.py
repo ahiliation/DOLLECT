@@ -77,6 +77,47 @@ def connectivity():
             print "Failed\n"
             sys.exit(0)
 
+
+
+
+        
+def archiving():
+#    print "hello" 
+    arca = list()
+    form = list()
+    dlink = list()
+    arca = ['Cpio','Gzip','Paxutils','Sharutils','Tar','Xorriso']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Cpio/Gzip/Paxutils/Sharutils/Tar/Xorriso]"
+    selection = raw_input()
+    program = selection.lower()
+    html = "http://www.gnu.org/software/" + program + "/manual/" + program + ".html"
+    info = "http://www.gnu.org/software/" + program + "/manual/" + program + "-info.tar.gz"
+    text = "http://www.gnu.org/software/" + program + "/manual/" + program + ".txt"
+    dvi  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".dvi.gz"
+    pdf  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".pdf"
+    texi = "http://www.gnu.org/software/" + program + "/manual/" + program + ".texi.tar.gz"
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+#    print dlink[0]
+    for name in xrange(5):
+        if arca[name] == selection:
+            print "[html/info/ascii/dvi/pdf/texi]"
+            selection = raw_input()
+            for name in xrange(5):
+                if form[name] == selection:
+                    filename = wget.download(dlink[name])
+                    
+                    
+    
+        
+        
+
+        
 def gdb():
     try:
         gdb = dict() 
@@ -267,6 +308,11 @@ if len(sys.argv) > 1:
         connectivity()
         gdb()
         
+    elif sys.argv[1] == "archiving":
+#        print "hello"
+        connectivity()
+        archiving()
+
     else:
         print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(17):
