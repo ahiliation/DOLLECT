@@ -103,6 +103,13 @@ def archiving():
     dlink.append(dvi)
     dlink.append(pdf)
     dlink.append(texi)
+#    try:
+#        data = urllib.urlopen(dlink[4])
+#        print "Available"
+#    except:
+#        print "Failed\n"
+#        sys.exit(0)
+    
 #    print dlink[0]
     for name in xrange(5):
         if arca[name] == selection:
