@@ -129,7 +129,7 @@ def audio():
     audio = list()
     form = list()
     dlink = list()
-    audio = ['Ccd2cue','EMMS','Gmediaserver','GNUfm','GNUmp3d',' GNUpod','Radio','GNUsound','Guile-SDL','Libcdio','Libextractor','Speex','Xhippo']
+    audio = ['Ccd2cue','EMMS','Gmediaserver','GNUfm','GNUmp3d','GNUpod','Radio','GNUsound','Guile-SDL','Libcdio','Libextractor','Speex','Xhippo']
     form = ['html','info','ascii','dvi','pdf','texi']
     print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
     selection = raw_input()
@@ -155,14 +155,12 @@ def audio():
               #  print form[name]
               #  print selection
                 if form[name] == selection:
-                    filename = wget.download(dlink[name])
-                    print "\n"
-                    sys.exit(0)
+                    try:
+                        filename = wget.download(dlink[name])
+                        print "\n"
+                    except:
+                        print "Unable to find URL \n"
                     
-
-                    
-        
-        
 
         
 def gdb():
@@ -375,4 +373,3 @@ if len(sys.argv) > 1:
             else:
                 connectivity()
                 lvb()
-                                                            
