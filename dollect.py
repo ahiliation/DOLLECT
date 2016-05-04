@@ -118,9 +118,49 @@ def archiving():
             for name in xrange(5):
                 if form[name] == selection:
                     filename = wget.download(dlink[name])
+                    print "\n"
+
+
                     
                     
-    
+                    
+def audio():
+#    print "hello" 
+    audio = list()
+    form = list()
+    dlink = list()
+    audio = ['Ccd2cue','EMMS','Gmediaserver','GNUfm','GNUmp3d',' GNUpod','Radio','GNUsound','Guile-SDL','Libcdio','Libextractor','Speex','Xhippo']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
+    selection = raw_input()
+    program = selection.lower()
+    html = "http://www.gnu.org/software/" + program + "/manual/" + program + ".html"
+    info = "http://www.gnu.org/software/" + program + "/manual/" + program + "-info.tar.gz"
+    text = "http://www.gnu.org/software/" + program + "/manual/" + program + ".txt"
+    dvi  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".dvi.gz"
+    pdf  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".pdf"
+    texi = "http://www.gnu.org/software/" + program + "/manual/" + program + ".texi.tar.gz"
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+#    print dlink[0]
+    for name in xrange(len(audio)):
+        if audio[name] == selection:
+            print "[html/info/ascii/dvi/pdf/texi]"
+            selection = raw_input()
+            for name in xrange(5):
+              #  print form[name]
+              #  print selection
+                if form[name] == selection:
+                    filename = wget.download(dlink[name])
+                    print "\n"
+                    sys.exit(0)
+                    
+
+                    
         
         
 
@@ -319,6 +359,10 @@ if len(sys.argv) > 1:
 #        print "hello"
         connectivity()
         archiving()
+
+    elif sys.argv[1] == "audio":
+        connectivity()
+        audio()
 
     else:
         print "\n LINUXVOICE COMPLETE \n"
