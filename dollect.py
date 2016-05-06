@@ -160,6 +160,48 @@ def audio():
                         print "\n"
                     except:
                         print "Unable to find URL \n"
+
+
+def database():
+#    print "hello" 
+    database = list()
+    form = list()
+    dlink = list()
+    database = ['Gdbm','Libdbh']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Gdbm/Libdbh]"
+    selection = raw_input()
+    if selection == "Libdbh":
+        program = "Libdbh"
+        leaf  = selection.lower()
+    else:
+        program = selection.lower()
+        leaf = selection.lower()
+    html = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".html"
+    info = "http://www.gnu.org/software/" + leaf + "/manual/" + program + "-info.tar.gz"
+    text = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".txt"
+    dvi  = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".dvi.gz"
+    pdf  = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".pdf"
+    texi = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".texi.tar.gz"
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+#    print dlink[0]
+#    print "hello"
+    for name in xrange(len(database)):
+        if database[name] == selection:
+            print "[html/info/ascii/dvi/pdf/texi]"
+            selection = raw_input()
+            for name in xrange(5):
+                if form[name] == selection:
+                    try:
+                        filename = wget.download(dlink[name])
+                        print "\n"
+                    except:
+                        print "Unable to find URL \n"
                     
 
         
@@ -362,6 +404,10 @@ if len(sys.argv) > 1:
         connectivity()
         audio()
 
+    elif sys.argv[1] == "database":
+        connectivity()
+        database()
+        
     else:
         print "\n LINUXVOICE COMPLETE \n"
         for i in xrange(17):
