@@ -111,11 +111,11 @@ def archiving():
 #        sys.exit(0)
     
 #    print dlink[0]
-    for name in xrange(5):
+    for name in xrange(6):
         if arca[name] == selection:
             print "[html/info/ascii/dvi/pdf/texi]"
             selection = raw_input()
-            for name in xrange(5):
+            for name in xrange(6):
                 if form[name] == selection:
                     filename = wget.download(dlink[name])
                     print "\n"
@@ -151,7 +151,7 @@ def audio():
         if audio[name] == selection:
             print "[html/info/ascii/dvi/pdf/texi]"
             selection = raw_input()
-            for name in xrange(5):
+            for name in xrange(6):
               #  print form[name]
               #  print selection
                 if form[name] == selection:
@@ -195,7 +195,43 @@ def database():
         if database[name] == selection:
             print "[html/info/ascii/dvi/pdf/texi]"
             selection = raw_input()
-            for name in xrange(5):
+            for name in xrange(6):
+                if form[name] == selection:
+                    try:
+                        filename = wget.download(dlink[name])
+                        print "\n"
+                    except:
+                        print "Unable to find URL \n"
+
+
+def dictionaries():
+#    print "hello" 
+    dictionaries = list()
+    form = list()
+    dlink = list()
+    dictionaries = ['Dico']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Dico]"
+    selection = raw_input()
+    program = selection.lower()
+    html = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".html"
+    info = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + "-info.tar.gz"
+    text = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".txt"
+    dvi  = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".dvi.gz"
+    pdf  = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".pdf"
+    texi = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".texi.tar.gz"
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+    for name in xrange(len(dictionaries)):
+        if dictionaries[name] == selection:
+            print "[html/info/ascii/dvi/pdf/texi]"
+            selection = raw_input()
+            for name in xrange(6):
+             #   print name
                 if form[name] == selection:
                     try:
                         filename = wget.download(dlink[name])
@@ -407,6 +443,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "database":
         connectivity()
         database()
+
+    elif sys.argv[1] == "dictionaries":
+        connectivity()
+        dictionaries()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
