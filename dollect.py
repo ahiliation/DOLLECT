@@ -238,6 +238,47 @@ def dictionaries():
                         print "\n"
                     except:
                         print "Unable to find URL \n"
+
+
+
+def doculation():
+#    print "hello" 
+    doculation = list()
+    form = list()
+    dlink = list()
+    doculation = ['WEB-TRANS','GNUN']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[WEB-TRANS/GNUN]"
+    selection = raw_input()
+    program = selection.lower()
+  #  print program
+    html = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".html"
+    info = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + "-info.tar.gz"
+    text = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".txt"
+    dvi  = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".dvi.gz"
+    pdf  = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".pdf"
+    texi = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".texi.tar.gz"
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+#    print "hello"
+    for name in xrange(len(doculation)):
+ #       print doculation[name]
+        if doculation[name] == selection:
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi]"
+            selection = raw_input()
+            for name in xrange(6):
+             #   print name
+                if form[name] == selection:
+                    try:
+                        filename = wget.download(dlink[name])
+                        print "\n"
+                    except:
+                        print "Unable to find URL \n"
                     
 
         
@@ -447,6 +488,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "dictionaries":
         connectivity()
         dictionaries()
+
+    elif sys.argv[1] == "doculation":
+        connectivity()
+        doculation()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
