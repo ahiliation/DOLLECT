@@ -117,22 +117,25 @@ def archiving():
     dlink.append(dvi)
     dlink.append(pdf)
     dlink.append(texi)
-#    try:
-#        data = urllib.urlopen(dlink[4])
-#        print "Available"
-#    except:
-#        print "Failed\n"
-#        sys.exit(0)
-    
-#    print dlink[0]
-    for name in xrange(6):
+    for name in xrange(len(arca)):
         if arca[name] == selection:
-            print "[html/info/ascii/dvi/pdf/texi]"
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
             selection = raw_input()
             for name in xrange(6):
-                if form[name] == selection:
-                    filename = wget.download(dlink[name])
+                if selection == "all":
+                    for name in xrange(6):
+                        filename = wget.download(dlink[name])
                     print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
+
 
 
                     
@@ -161,20 +164,25 @@ def audio():
     dlink.append(dvi)
     dlink.append(pdf)
     dlink.append(texi)
-#    print dlink[0]
     for name in xrange(len(audio)):
         if audio[name] == selection:
-            print "[html/info/ascii/dvi/pdf/texi]"
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
             selection = raw_input()
             for name in xrange(6):
-              #  print form[name]
-              #  print selection
-                if form[name] == selection:
-                    try:
+                if selection == "all":
+                    for name in xrange(6):
                         filename = wget.download(dlink[name])
-                        print "\n"
-                    except:
-                        print "Unable to find URL \n"
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
+
 
 
 def database():
@@ -205,19 +213,24 @@ def database():
     dlink.append(dvi)
     dlink.append(pdf)
     dlink.append(texi)
-#    print dlink[0]
-#    print "hello"
     for name in xrange(len(database)):
         if database[name] == selection:
-            print "[html/info/ascii/dvi/pdf/texi]"
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
             selection = raw_input()
             for name in xrange(6):
-                if form[name] == selection:
-                    try:
+                if selection == "all":
+                    for name in xrange(6):
                         filename = wget.download(dlink[name])
-                        print "\n"
-                    except:
-                        print "Unable to find URL \n"
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
 
 
 def dictionaries():
@@ -245,19 +258,24 @@ def dictionaries():
     dlink.append(pdf)
     dlink.append(texi)
     for name in xrange(len(dictionaries)):
+ #       print dictionaries[name]
         if dictionaries[name] == selection:
-            print "[html/info/ascii/dvi/pdf/texi]"
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
             selection = raw_input()
             for name in xrange(6):
-             #   print name
-                if form[name] == selection:
-                    try:
+                if selection == "all":
+                    for name in xrange(6):
                         filename = wget.download(dlink[name])
-                        print "\n"
-                    except:
-                        print "Unable to find URL \n"
-
-
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
 
 def doculation():
 #    print "hello" 
@@ -288,16 +306,21 @@ def doculation():
  #       print doculation[name]
         if doculation[name] == selection:
 #            print "hello"
-            print "[html/info/ascii/dvi/pdf/texi]"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
             selection = raw_input()
             for name in xrange(6):
-             #   print name
-                if form[name] == selection:
-                    try:
+                if selection == "all":
+                    for name in xrange(6):
                         filename = wget.download(dlink[name])
-                        print "\n"
-                    except:
-                        print "Unable to find URL \n"
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
                     
 
         
