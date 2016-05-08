@@ -80,6 +80,26 @@ def connectivity():
 
 
 
+def link(accept):
+#    print type(accept)
+    if  accept == "archiving" or accept == "audio" or accept == "database":
+        basegnu = "http://www.gnu.org/software/"
+        return basegnu
+    elif accept == "dictionaries":
+        basegnu = "http://puszcza.gnu.org.ua/software/"
+        return basegnu
+    elif accept == "doculation": 
+        basegnu = "http://www.gnu.org/software/trans-coord/manual/"
+        return basegnu
+
+        
+    
+
+
+
+            
+
+
         
 def archiving():
 #    print "hello" 
@@ -91,12 +111,14 @@ def archiving():
     print "[Cpio/Gzip/Paxutils/Sharutils/Tar/Xorriso]"
     selection = raw_input()
     program = selection.lower()
-    html = "http://www.gnu.org/software/" + program + "/manual/" + program + ".html"
-    info = "http://www.gnu.org/software/" + program + "/manual/" + program + "-info.tar.gz"
-    text = "http://www.gnu.org/software/" + program + "/manual/" + program + ".txt"
-    dvi  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".dvi.gz"
-    pdf  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".pdf"
-    texi = "http://www.gnu.org/software/" + program + "/manual/" + program + ".texi.tar.gz"
+    base = link("archiving")
+ #   print base
+    html = base + program + "/manual/" + program + ".html"
+    info = base + program + "/manual/" + program + "-info.tar.gz"
+    text = base + program + "/manual/" + program + ".txt"
+    dvi  = base + program + "/manual/" + program + ".dvi.gz"
+    pdf  = base + program + "/manual/" + program + ".pdf"
+    texi = base + program + "/manual/" + program + ".texi.tar.gz"
     dlink.append(html)
     dlink.append(info)
     dlink.append(text)
@@ -134,12 +156,13 @@ def audio():
     print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
     selection = raw_input()
     program = selection.lower()
-    html = "http://www.gnu.org/software/" + program + "/manual/" + program + ".html"
-    info = "http://www.gnu.org/software/" + program + "/manual/" + program + "-info.tar.gz"
-    text = "http://www.gnu.org/software/" + program + "/manual/" + program + ".txt"
-    dvi  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".dvi.gz"
-    pdf  = "http://www.gnu.org/software/" + program + "/manual/" + program + ".pdf"
-    texi = "http://www.gnu.org/software/" + program + "/manual/" + program + ".texi.tar.gz"
+    base = link("audio")
+    html = base + program + "/manual/" + program + ".html"
+    info = base + program + "/manual/" + program + "-info.tar.gz"
+    text = base + program + "/manual/" + program + ".txt"
+    dvi  = base + program + "/manual/" + program + ".dvi.gz"
+    pdf  = base + program + "/manual/" + program + ".pdf"
+    texi = base + program + "/manual/" + program + ".texi.tar.gz"
     dlink.append(html)
     dlink.append(info)
     dlink.append(text)
@@ -177,12 +200,13 @@ def database():
     else:
         program = selection.lower()
         leaf = selection.lower()
-    html = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".html"
-    info = "http://www.gnu.org/software/" + leaf + "/manual/" + program + "-info.tar.gz"
-    text = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".txt"
-    dvi  = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".dvi.gz"
-    pdf  = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".pdf"
-    texi = "http://www.gnu.org/software/" + leaf + "/manual/" + program + ".texi.tar.gz"
+    base = link("database")
+    html = base + leaf + "/manual/" + program + ".html"
+    info = base + leaf + "/manual/" + program + "-info.tar.gz"
+    text = base + leaf + "/manual/" + program + ".txt"
+    dvi  = base + leaf + "/manual/" + program + ".dvi.gz"
+    pdf  = base + leaf + "/manual/" + program + ".pdf"
+    texi = base + leaf + "/manual/" + program + ".texi.tar.gz"
     dlink.append(html)
     dlink.append(info)
     dlink.append(text)
@@ -214,12 +238,14 @@ def dictionaries():
     print "[Dico]"
     selection = raw_input()
     program = selection.lower()
-    html = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".html"
-    info = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + "-info.tar.gz"
-    text = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".txt"
-    dvi  = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".dvi.gz"
-    pdf  = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".pdf"
-    texi = "http://puszcza.gnu.org.ua/software/" + program + "/manual/" + program + ".texi.tar.gz"
+    base = link("dictionaries")
+    html = base + program + "/manual/" + program + ".html"
+    info = base + program + "/manual/" + program + "-info.tar.gz"
+    text = base + program + "/manual/" + program + ".txt"
+    dvi  = base + program + "/manual/" + program + ".dvi.gz"
+    pdf  = base + program + "/manual/" + program + ".pdf"
+    texi = base + program + "/manual/" + program + ".texi.tar.gz"
+#    print html
     dlink.append(html)
     dlink.append(info)
     dlink.append(text)
@@ -252,12 +278,13 @@ def doculation():
     selection = raw_input()
     program = selection.lower()
   #  print program
-    html = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".html"
-    info = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + "-info.tar.gz"
-    text = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".txt"
-    dvi  = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".dvi.gz"
-    pdf  = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".pdf"
-    texi = "http://www.gnu.org/software/trans-coord/manual/" + program + "/" + program + ".texi.tar.gz"
+    base = link("doculation")
+    html = base + program + "/" + program + ".html"
+    info = base + program + "/" + program + "-info.tar.gz"
+    text = base + program + "/" + program + ".txt"
+    dvi  = base + program + "/" + program + ".dvi.gz"
+    pdf  = base + program + "/" + program + ".pdf"
+    texi = base + program + "/" + program + ".texi.tar.gz"
     dlink.append(html)
     dlink.append(info)
     dlink.append(text)
