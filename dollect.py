@@ -93,14 +93,6 @@ def link(accept):
         return basegnu
 
         
-    
-
-
-
-            
-
-
-        
 def archiving():
 #    print "hello" 
     arca = list()
@@ -311,10 +303,12 @@ def doculation():
         
 def gdb():
     try:
-        gdb = dict() 
-        gdb[1] = "http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz"
-        gdb[2] = "https://sourceware.org/gdb/talks/esc-west-1999/paper.pdf"
-        gdb[3] = "https://sourceware.org/gdb/talks/esc-west-1999/slides.pdf"
+        gdb = dict()
+        pre1 = "http://sourceware.org/gdb/current/onlinedocs/"
+        pre2 = "https://sourceware.org/gdb/talks/esc-west-1999/"
+        gdb[1] = pre1 + "gdb.pdf.gz"
+        gdb[2] = pre2 + "paper.pdf"
+        gdb[3] = pre2 + "slides.pdf"
         print stringa
         print "GDB Documentation"
         print "GDB User Manual"
@@ -340,13 +334,14 @@ def gcc():
         print stringa
         print "GCC Documentation"
         print "GCC Manual"
-        filename = wget.download("https://gcc.gnu.org/onlinedocs/gcc.pdf")
+        pre = "https://gcc.gnu.org/onlinedocs/"
+        filename = wget.download(pre + "gcc.pdf")
         print "\nGNU Fortran Manual"
-        filename = wget.download("https://gcc.gnu.org/onlinedocs/gfortran.pdf")
+        filename = wget.download(pre + "gfortran.pdf")
         print "\nGCJ Manual"
-        filename = wget.download("https://gcc.gnu.org/onlinedocs/gcj.pdf")
+        filename = wget.download(pre + "gcj.pdf")
         print "\nCPP Manual"
-        filename = wget.download("https://gcc.gnu.org/onlinedocs/cpp.pdf")
+        filename = wget.download(pre + "cpp.pdf")
         print "\nCompleted\n"
     except:
         print "\n Did something else happen ? \n"
