@@ -146,9 +146,22 @@ def audio():
     audio = list()
     form = list()
     dlink = list()
-    audio = ['Ccd2cue','EMMS','Gmediaserver','GNUfm','GNUmp3d','GNUpod','Radio','GNUsound','Guile-SDL','Libcdio','Libextractor','Speex','Xhippo']
+    audio.append('Ccd2cue')
+    audio.append('EMMS')
+    audio.append('Gmediaserver')
+    audio.append('GNUfm')
+    audio.append('GNUmp3d')
+    audio.append('GNUpod')
+    audio.append('Radio')
+    audio.append('GNUsound')
+    audio.append('Guile-SDL')
+    audio.append('Libcdio')
+    audio.append('Libextractor')
+    audio.append('Speex')
+    audio.append('Xhippo')
     form = ['html','info','ascii','dvi','pdf','texi']
-    print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
+    print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/]"
+    print "[GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
     selection = raw_input()
     program = selection.lower()
     base = link("audio")
