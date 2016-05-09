@@ -92,7 +92,7 @@ def link(accept):
         basegnu = "http://www.gnu.org/software/trans-coord/manual/"
         return basegnu
 
-        
+    
 def archiving():
 #    print "hello" 
     arca = list()
@@ -321,9 +321,28 @@ def doculation():
                             print "\n"
                         except:
                             print "Unable to find URL \n"
-                    
 
-        
+
+def editor():
+#   print "hello" 
+    editor = list()
+    form = list()
+    dlink = list()
+    editor = ['Moe','nano']
+   # form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Moe/nano]"
+    selection = raw_input()
+    if selection == "Moe":
+        filename = wget.download("http://www.gnu.org/software/moe/manual/moe_manual.html")
+        print "\n"
+    elif selection == "nano":
+        filename = wget.download("http://www.nano-editor.org/dist/v2.5/nano.html")
+        print "\n"
+    else:
+        sys.exit(0)
+
+  
+                            
 def gdb():
     try:
         gdb = dict()
@@ -537,6 +556,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "doculation":
         connectivity()
         doculation()
+
+    elif sys.argv[1] == "editor":
+        connectivity()
+        editor()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
