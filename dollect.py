@@ -91,7 +91,21 @@ def link(accept):
     elif accept == "doculation": 
         basegnu = "http://www.gnu.org/software/trans-coord/manual/"
         return basegnu
+    elif accept == "education":
+        basegnu = "http://www.gnu.org/software/"
+        return basegnu
 
+def official(accept):
+    if accept == "Dr.Geo":
+        typeof = "non-standard"
+        return typeof
+    elif accept == "MIX Development Kit":
+        typeof = "standard"
+        return typeof
+    
+    
+
+        
     
 def archiving():
 #    print "hello" 
@@ -326,7 +340,6 @@ def doculation():
                     for name in xrange(6):
                         filename = wget.download(dlink[name])
                     print "\n"
-                    sys.exit(0)
                 else:
                     if form[name] == selection:
                         try:
@@ -354,6 +367,92 @@ def editor():
     else:
         sys.exit(0)
 
+
+def education():
+#    print "hello" 
+    education = list()
+    form = list()
+    dlink = list()
+    education.append('Dr.Geo')
+    education.append('Eprints')
+    education.append('FisicaLab')
+    education.append('GCompris')
+    education.append('Gradebook')
+    education.append('Glean')
+    education.append('GNUschool')
+    education.append('Gtypist')
+    education.append('Ignuit')
+    education.append('MDK')
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Dr.Geo/Eprints/FisicaLab/Gcompris/Gradebook/Glean/GNUschool]"
+    print "[Gtypist/Ignuit/MDK]"
+    selection = raw_input()
+    # type = official(selection)
+    program = selection.lower()
+    base = link("education")
+    html = base + program + "/manual/" + program + ".html"
+    info = base + program + "/manual/" + program + "-info.tar.gz"
+    text = base + program + "/manual/" + program + ".txt"
+    dvi  = base + program + "/manual/" + program + ".dvi.gz"
+    pdf  = base + program + "/manual/" + program + ".pdf"
+    texi = base + program + "/manual/" + program + ".texi.tar.gz"
+    if selection == "Dr.Geo":
+         print "No data available"
+         sys.exit(0)
+    elif selection == "Eprints":
+        filename = wget.download("http://wiki.eprints.org/w/EPrints_Manual")
+        sys.exit(0)
+    elif selection == "FisicaLab":
+        filename = wget.download(base + program + "/manual/en/fisicalab/index.html")
+        sys.exit(0)
+    elif selection == "Gcompris":
+        print "here"
+        filename = wget.download("http://gcompris.net/wiki/Manual")
+        sys.exit(0)
+    elif selection == "Gradebook":
+        filename = wget.download("http://www.gnu.org/software/ggradebook/")
+        sys.exit(0)
+    elif selection == "Glean":
+        filename = wget.download("http://glean.eu/dir/")
+        sys.exit(0)
+    elif selection == "GNUschool":
+        filename = wget.download(base + program + "/gnuschool.html")
+    elif selection == "Gtypist":
+        filename = wget.download(base + program+ "/doc/")
+    elif selection == "Ignuit":
+        filename = wget.download("http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit")
+    
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+    
+    # loop for selecting  package
+    for name in xrange(len(education)):
+        if education[name] == selection:
+#            print "hello"
+            # loop for selecting package format
+            print "[html/info/ascii/dvi/pdf/texi/all]"
+            selection = raw_input()
+            for name in xrange(6):
+                if selection == "all":
+                    for name in xrange(6):
+                        filename = wget.download(dlink[name])
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    print selection
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
+
+
+        
   
                             
 def gdb():
@@ -573,6 +672,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "editor":
         connectivity()
         editor()
+        
+    elif sys.argv[1] == "education":
+        connectivity()
+        education()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
