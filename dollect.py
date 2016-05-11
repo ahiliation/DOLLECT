@@ -401,27 +401,37 @@ def education():
          sys.exit(0)
     elif selection == "Eprints":
         filename = wget.download("http://wiki.eprints.org/w/EPrints_Manual")
+        print "\n"
         sys.exit(0)
     elif selection == "FisicaLab":
         filename = wget.download(base + program + "/manual/en/fisicalab/index.html")
+        print "\n"
         sys.exit(0)
     elif selection == "Gcompris":
-        print "here"
         filename = wget.download("http://gcompris.net/wiki/Manual")
+        print "\n"
         sys.exit(0)
     elif selection == "Gradebook":
         filename = wget.download("http://www.gnu.org/software/ggradebook/")
+        print "\n"
         sys.exit(0)
     elif selection == "Glean":
         filename = wget.download("http://glean.eu/dir/")
+        print "\n"
         sys.exit(0)
     elif selection == "GNUschool":
         filename = wget.download(base + program + "/gnuschool.html")
+        print "\n"
+        sys.exit(0)
     elif selection == "Gtypist":
         filename = wget.download(base + program+ "/doc/")
+        print "\n"
+        sys.exit(0)
     elif selection == "Ignuit":
         filename = wget.download("http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit")
-    
+        print "\n"
+        sys.exit(0)
+        
     dlink.append(html)
     dlink.append(info)
     dlink.append(text)
