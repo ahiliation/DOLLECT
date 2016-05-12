@@ -462,6 +462,77 @@ def education():
                             print "Unable to find URL \n"
 
 
+
+def email():
+#    print "hello" 
+    email = list()
+    form = list()
+    dlink = list()
+    email.append('Anubis')
+    email.append('GNUbiff')
+    email.append('Mailman')
+    email.append('Mailutils')
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Anubis/GNUbiff/Mailman/Mailutils]"
+    selection = raw_input()
+    program = selection.lower()
+  #  print program
+   # base = link("email")
+    if selection == "GNUbiff":
+        filename = wget.download("http://gnubiff.sourceforge.net/documentation.php")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Mailman":
+        base = "http://www.gnu.org/software/"
+        filename = wget.download(base + program + "/mailman-member.pdf")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Mailutils":
+         base = "http://mailutils.org/manual/"
+         html = base + program + ".html"
+         info = base + program + "-info.tar.gz"
+         text = base + program + ".txt"
+         dvi  = base + program + ".dvi.gz"
+         pdf  = base + program + ".pdf"
+         texi = base + program + ".texi.tar.gz"
+
+    elif selection == "Anubis":
+        base = "http://www.gnu.org/software/"
+        html = base + program + "/manual/" + program + ".html"
+        info = base + program + "/manual/" + program + "-info.tar.gz"
+        text = base + program + "/manual/" + program + ".txt"
+        dvi  = base + program + "/manual/" + program + ".dvi.gz"
+        pdf  = base + program + "/manual/" + program + ".pdf"
+        texi = base + program + "/manual/" + program + ".texi.tar.gz"
+        
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+    
+#    print "hello"
+    for name in xrange(len(email)):
+ #       print email[name]
+        if email[name] == selection:
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
+            selection = raw_input()
+            for name in xrange(6):
+                if selection == "all":
+                    for name in xrange(6):
+                        filename = wget.download(dlink[name])
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
+
         
   
                             
@@ -686,6 +757,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "education":
         connectivity()
         education()
+        
+    elif sys.argv[1] == "email":
+        connectivity()
+        email()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
