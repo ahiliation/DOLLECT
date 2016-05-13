@@ -102,6 +102,9 @@ def official(accept):
     elif accept == "MIX Development Kit":
         typeof = "standard"
         return typeof
+    elif accept == "Fontopia":
+        typeof = "standard"
+        return typeof
     
     
 
@@ -533,6 +536,77 @@ def email():
                         except:
                             print "Unable to find URL \n"
 
+
+def font():
+#    print "hello" 
+    font = list()
+    form = list()
+    dlink = list()
+    font.append('Fontopia')
+    font.append('Fontutils')
+    font.append('FreeFont')
+    font.append('Intlfonts')
+    font.append('Unifont')
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Fontopia/Fontutils/FreeFont/Intlfonts/Unifont]"
+    selection = raw_input()
+    program = selection.lower()
+    type = official(selection)
+    if selection == "Fontutils":
+        filename = wget.download("http://www.delorie.com/gnu/docs/fontutils/fontu_toc.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "FreeFont":
+        base = "http://www.gnu.org/software/"
+        filename = wget.download(base +  "/freefont/design-notes.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Intlfonts":
+       filename = wget.download("http://directory.fsf.org/wiki/Intlfonts")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Unifont":
+       filename = wget.download("http://unifoundry.com/unicode-tutorial.html")
+       print "\n"
+       sys.exit(0)
+                       
+    elif type == "standard" :
+        base = "http://www.gnu.org/software/"
+        html = base + program + "/manual/" + program + ".html"
+        info = base + program + "/manual/" + program + "-info.tar.gz"
+        text = base + program + "/manual/" + program + ".txt"
+        dvi  = base + program + "/manual/" + program + ".dvi.gz"
+        pdf  = base + program + "/manual/" + program + ".pdf"
+        texi = base + program + "/manual/" + program + ".texi.tar.gz"
+        
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+    
+#    print "hello"
+    for name in xrange(len(font)):
+ #       print font[name]
+        if font[name] == selection:
+#            print "hello"
+            print "[html/info/ascii/dvi/pdf/texi/all]"
+            selection = raw_input()
+            for name in xrange(6):
+                if selection == "all":
+                    for name in xrange(6):
+                        filename = wget.download(dlink[name])
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
+
         
   
                             
@@ -761,6 +835,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "email":
         connectivity()
         email()
+
+    elif sys.argv[1] == "font":
+        connectivity()
+        font()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
