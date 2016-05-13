@@ -607,9 +607,18 @@ def font():
                         except:
                             print "Unable to find URL \n"
 
-        
-  
-                            
+
+def organization():
+    print "[ GNU organization]"
+  #  filename = wget.__file__()
+  #  print filename
+  #  for method in dir(wget):
+  #      if callable(getattr(wget, method)):
+  #         print method
+    print "\n"
+    sys.exit(0)
+
+    
 def gdb():
     try:
         gdb = dict()
@@ -839,6 +848,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "font":
         connectivity()
         font()
+
+    elif sys.argv[1] == "organization":
+        connectivity()
+        organization()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
