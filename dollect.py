@@ -610,8 +610,11 @@ def font():
 
 def organization():
     print "[ GNU organization]"
-  #  filename = wget.__file__()
-  #  print filename
+    try:
+        filename = wget.download("http://www.gnu.org/prep")
+        print "name of the downloaded document is", filename
+    except:
+        print "hello"
   #  for method in dir(wget):
   #      if callable(getattr(wget, method)):
   #         print method
