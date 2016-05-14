@@ -632,7 +632,7 @@ def game():
     form = list()
     dlink = list()
     game.append('Acm')
-    game.append('Ball and Paddle')
+    game.append('BallandPaddle')
     game.append('GNUChess')
     game.append('Dominion')
     game.append('GNUbg')
@@ -649,7 +649,7 @@ def game():
     game.append('Talkfilters')
     game.append('XBoard')
     form = ['html','info','ascii','dvi','pdf','texi']
-    print "[Acm/Ball and Paddle/GNUChess/Dominion/GNUbg]"
+    print "[Acm/BallandPaddle/GNUChess/Dominion/GNUbg]"
     print "[GNUbik/GNUgo/GNUjump/GNUkart/GNUrobots/GNUshogi]"
     print "[Leg/LiquidWar6/Motti/Rpge/Talkfilters/XBoard]"
     selection = raw_input()
@@ -685,6 +685,9 @@ def game():
        filename = wget.download("http://www.hyperrealm.com/talkfilters/talkfilters.pdf")
        print "\n"
        sys.exit(0)
+    else:
+        print "\n"
+        sys.exit(0)
                        
     
         
