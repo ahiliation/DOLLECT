@@ -91,9 +91,10 @@ def link(accept):
     elif accept == "doculation": 
         basegnu = "http://www.gnu.org/software/trans-coord/manual/"
         return basegnu
-    elif accept == "education":
+    elif accept == "education" :
         basegnu = "http://www.gnu.org/software/"
         return basegnu
+    
 
 def official(accept):
     if accept == "Dr.Geo":
@@ -105,8 +106,10 @@ def official(accept):
     elif accept == "Fontopia":
         typeof = "standard"
         return typeof
-    
-    
+    elif (accept == "Acm" or accept == "GNUchess" or accept == "GNUbg" or
+          accept == "GNUbik" or accept == "LiquidWar6" or accept == "XBoard"):
+        typeof = "standard"
+        return typeof
 
         
     
@@ -629,46 +632,30 @@ def game():
     form = list()
     dlink = list()
     game.append('Acm')
-    game.append('Ball and Paddle')
-    game.append('Chess')
+    game.append('BallandPaddle')
+    game.append('GNUChess')
     game.append('Dominion')
-    game.append('Backgammon')
+    game.append('GNUbg')
     game.append('GNUbik')
     game.append('GNUgo')
     game.append('GNUjump')
     game.append('GNUkart')
-    game.append('Robots')
+    game.append('GNUrobots')
     game.append('GNUshogi')
     game.append('Leg')
-    game.append('Liquid War 6')
+    game.append('LiquidWar6')
     game.append('Motti')
     game.append('Rpge')
     game.append('Talkfilters')
     game.append('XBoard')
     form = ['html','info','ascii','dvi','pdf','texi']
-    print "[Fontopia/Fontutils/FreeFont/Intlfonts/Unifont]"
+    print "[Acm/BallandPaddle/GNUChess/Dominion/GNUbg]"
+    print "[GNUbik/GNUgo/GNUjump/GNUkart/GNUrobots/GNUshogi]"
+    print "[Leg/LiquidWar6/Motti/Rpge/Talkfilters/XBoard]"
     selection = raw_input()
     program = selection.lower()
     type = official(selection)
-    if selection == "Fontutils":
-        filename = wget.download("http://www.delorie.com/gnu/docs/fontutils/fontu_toc.html")
-        print "\n"
-        sys.exit(0)
-    elif selection == "FreeFont":
-        base = "http://www.gnu.org/software/"
-        filename = wget.download(base +  "/freefont/design-notes.html")
-        print "\n"
-        sys.exit(0)
-    elif selection == "Intlfonts":
-       filename = wget.download("http://directory.fsf.org/wiki/Intlfonts")
-       print "\n"
-       sys.exit(0)
-    elif selection == "Unifont":
-       filename = wget.download("http://unifoundry.com/unicode-tutorial.html")
-       print "\n"
-       sys.exit(0)
-                       
-    elif type == "standard" :
+    if type == "standard" :
         base = "http://www.gnu.org/software/"
         html = base + program + "/manual/" + program + ".html"
         info = base + program + "/manual/" + program + "-info.tar.gz"
@@ -676,6 +663,33 @@ def game():
         dvi  = base + program + "/manual/" + program + ".dvi.gz"
         pdf  = base + program + "/manual/" + program + ".pdf"
         texi = base + program + "/manual/" + program + ".texi.tar.gz"
+        
+    elif selection == "GNUgo":
+        print "hello"
+        filename = wget.download("http://www.gnu.org/software/gnugo/gnugo_toc.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GNUrobots":
+        filename = wget.download("http://www.gnu.org/software/gnurobots/readme.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Motti":
+       filename = wget.download("http://www.gnu.org/software/motti/manual/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Rpge":
+       filename = wget.download("http://www.gnu.org/software/rpge/rpge.pdf")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Talkfilters":
+       filename = wget.download("http://www.hyperrealm.com/talkfilters/talkfilters.pdf")
+       print "\n"
+       sys.exit(0)
+    else:
+        print "\n"
+        sys.exit(0)
+                       
+    
         
     dlink.append(html)
     dlink.append(info)
@@ -685,9 +699,9 @@ def game():
     dlink.append(texi)
     
 #    print "hello"
-    for name in xrange(len(font)):
- #       print font[name]
-        if font[name] == selection:
+    for name in xrange(len(game)):
+ #       print game[name]
+        if game[name] == selection:
 #            print "hello"
             print "[html/info/ascii/dvi/pdf/texi/all]"
             selection = raw_input()
@@ -940,6 +954,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "organization":
         connectivity()
         organization()
+
+    elif sys.argv[1] == "game":
+        connectivity()
+        game()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
