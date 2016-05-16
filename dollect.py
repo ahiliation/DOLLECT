@@ -107,7 +107,8 @@ def official(accept):
         typeof = "standard"
         return typeof
     elif (accept == "Acm" or accept == "GNUchess" or accept == "GNUbg" or
-          accept == "GNUbik" or accept == "LiquidWar6" or accept == "XBoard"):
+          accept == "GNUbik" or accept == "LiquidWar6" or accept == "XBoard" or
+          accept == "Plotutils" or accept == "Guile-Opengl"):
         typeof = "standard"
         return typeof
 
@@ -718,6 +719,120 @@ def game():
                             print "\n"
                         except:
                             print "Unable to find URL \n"
+
+
+def graphics():
+#    print "hello" 
+    graphics = list()
+    form = list()
+    dlink = list()
+    graphics.append('3DLDF')
+    graphics.append('Dia')
+    graphics.append('GIFT')
+    graphics.append('GIMP')
+    graphics.append('Gpaint')
+    graphics.append('GSEgrafix')
+    graphics.append('Guile-Opengl')
+    graphics.append('MAVERIK')
+    graphics.append('Panorama')
+    graphics.append('Plotutils')
+    graphics.append('XaoS')
+    graphics.append('Libxmi')
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[3DLDF/Dia/GIFT/GIMP/Gpaint/GSEgrafix/Guile-Opengl]"
+    print "[MAVERIK/Panorama/Plotutils/XaoS]"
+    selection = raw_input()
+    program = selection.lower()
+    type = official(selection)
+    if type == "standard" :
+        base = "http://www.gnu.org/software/"
+        html = base + program + "/manual/" + program + ".html"
+        info = base + program + "/manual/" + program + "-info.tar.gz"
+        text = base + program + "/manual/" + program + ".txt"
+        dvi  = base + program + "/manual/" + program + ".dvi.gz"
+        pdf  = base + program + "/manual/" + program + ".pdf"
+        texi = base + program + "/manual/" + program + ".texi.tar.gz"
+
+    elif selection == "3DLDF":
+        base = "http://www.gnu.org/software/"
+        html =    base + program + "/manual/" + "user_ref/" + selection + ".html"
+        targz =   base + program + "/manual/" + "user_ref/" + selection + ".tar.gz"
+        htmlgz =  base + program + "/manual/" + "user_ref/" + selection + ".html.gz"
+        ps  =     base + program + "/manual/" + "user_ref/" + selection + ".ps.gz"
+        pdf  =    base + program + "/manual/" + "user_ref/" + selection + ".pdf"
+        pdfgz =   base + program + "/manual/" + "user_ref/" + selection + ".pdf.gz"
+        
+        
+    elif selection == "Dia":
+       # print "hello"
+        filename = wget.download("http://dia-installer.de/doc/en/dia-manual.chm")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GIMP":
+        filename = wget.download("http://www.gimp.org/man/gimp.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "XaoS":
+       filename = wget.download("http://xaos.sourceforge.net/doc-trunk/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "GSEgrafix":
+       filename = wget.download("http://www.gnu.org/software/gsegrafix/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "MAVERIK":
+       filename = wget.download("http://www.gnu.org/software/maverik/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Libxmi":
+       filename = wget.download("http://www.gnu.org/software/libxmi/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "MAVERIK":
+       filename = wget.download("http://www.gnu.org/software/maverik/")
+       print "\n"
+       sys.exit(0)
+    else:
+        print "\n"
+        sys.exit(0)
+                       
+    if selection == "3DLDF":
+        dlink.append(html)
+        dlink.append(targz)
+        dlink.append(htmlgz)
+        dlink.append(ps)
+        dlink.append(pdf)
+        dlink.append(pdfgz)
+    elif type == "standard":
+        dlink.append(html)
+        dlink.append(info)
+        dlink.append(text)
+        dlink.append(dvi)
+        dlink.append(pdf)
+        dlink.append(texi)
+        
+#    print "hello"
+    for name in xrange(len(graphics)):
+        if graphics[name] == selection:
+#            print "hello"
+            if type == "standard":
+                print "[html/info/ascii/dvi/pdf/texi/all]"
+            elif selection == "3DLDF":
+                print "[html/targz/htmlgz/ps/pdf/pdfgz/all]"
+            selection = raw_input()
+            for name in xrange(6):
+                if selection == "all":
+                    for name in xrange(6):
+                        filename = wget.download(dlink[name])
+                    print "\n"
+                    sys.exit(0)
+                else:
+                    if form[name] == selection:
+                        try:
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                        except:
+                            print "Unable to find URL \n"
     
 
     
@@ -958,6 +1073,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "game":
         connectivity()
         game()
+
+    elif sys.argv[1] == "graphics":
+        connectivity()
+        graphics()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
