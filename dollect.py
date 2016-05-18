@@ -745,6 +745,7 @@ def graphics():
     program = selection.lower()
     type = official(selection)
     if type == "standard" :
+        print "hello"
         base = "http://www.gnu.org/software/"
         html = base + program + "/manual/" + program + ".html"
         info = base + program + "/manual/" + program + "-info.tar.gz"
@@ -834,6 +835,33 @@ def graphics():
                         except:
                             print "Unable to find URL \n"
     
+def health():
+#    print "hello" 
+    health = list()
+    health.append('GNUmed')
+    health.append('GNUtrition')
+    health.append('GNUhealth')
+   # form = ['html','info','ascii','dvi','pdf','texi']
+    print "[GNUmed/GNUtrition/GNUhealth]"
+    selection = raw_input()
+    if selection == "GNUmed":
+        filename = wget.download("http://www.gnumed.de/promotion/GNUmed-introduction_v4.pdf")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GNUtrition":
+        filename = wget.download("http://www.gnu.org/software/gnutrition/manual/index.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GNUhealth":
+       filename = wget.download("https://en.wikibooks.org/wiki/GNU_Health")
+       print "\n"
+       sys.exit(0)
+    else:
+        print "\n"
+        sys.exit(0)
+                       
+
+
 
     
 def gdb():
@@ -1077,6 +1105,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "graphics":
         connectivity()
         graphics()
+
+    elif sys.argv[1] == "health":
+        connectivity()
+        health()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
