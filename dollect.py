@@ -747,12 +747,12 @@ def graphics():
     if type == "standard" :
         print "hello"
         base = "http://www.gnu.org/software/"
-        html = base + program + "/manual/" + program + ".html"
-        info = base + program + "/manual/" + program + "-info.tar.gz"
-        text = base + program + "/manual/" + program + ".txt"
-        dvi  = base + program + "/manual/" + program + ".dvi.gz"
-        pdf  = base + program + "/manual/" + program + ".pdf"
-        texi = base + program + "/manual/" + program + ".texi.tar.gz"
+        html = base + program + "/manual/" + "en/" + program + ".html"
+        info = base + program + "/manual/" + "en/" + program + "-info.tar.gz"
+        text = base + program + "/manual/" + "en/" + program + ".txt"
+        dvi  = base + program + "/manual/" + "en/" + program + ".dvi.gz"
+        pdf  = base + program + "/manual/" + "en/" + program + ".pdf"
+        texi = base + program + "/manual/" + "en/" + program + ".texi.tar.gz"
 
     elif selection == "3DLDF":
         base = "http://www.gnu.org/software/"
