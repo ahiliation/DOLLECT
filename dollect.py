@@ -124,23 +124,24 @@ def alltext():
     archiving("alltext")
     
 
-def processing():
+def processing(rselection):
     for name in xrange(len(arca)):
-        if arca[name] == selection:
+        print rselection
+        if arca[name] == rselection:
 #            print "hello"
             if formataccept == "alltext":
-                selection = "ascii"
+                rselection = "ascii"
             else:
                 print "[html/info/ascii/dvi/pdf/texi/all]"
                 selection = raw_input()
             for name in xrange(6):
-                if selection == "all":
+                if rselection == "all":
                     for name in xrange(6):
                         filename = wget.download(dlink[name])
                     print "\n"
                     sys.exit(0)
                 else:
-                    if form[name] == selection:
+                    if form[name] == rselection:
                         try:
                             filename = wget.download(dlink[name])
                             print "\n"
@@ -179,7 +180,7 @@ def archiving(formataccept):
     dlink.append(dvi)
     dlink.append(pdf)
     dlink.append(texi)
-    processing()
+    processing(selection)
 
 
                     
