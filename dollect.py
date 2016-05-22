@@ -7,6 +7,7 @@ from BeautifulSoup import *
 
 global stringa
 global stringb
+global formataccept
 stringa = "(TRANS...> "
 stringb = ".pdf"
 
@@ -112,37 +113,21 @@ def official(accept):
         typeof = "standard"
         return typeof
 
-        
+
+
+def alltext():
+    archiving("alltext")
     
-def archiving():
-#    print "hello" 
-    arca = list()
-    form = list()
-    dlink = list()
-    arca = ['Cpio','Gzip','Paxutils','Sharutils','Tar','Xorriso']
-    form = ['html','info','ascii','dvi','pdf','texi']
-    print "[Cpio/Gzip/Paxutils/Sharutils/Tar/Xorriso]"
-    selection = raw_input()
-    program = selection.lower()
-    base = link("archiving")
- #   print base
-    html = base + program + "/manual/" + program + ".html"
-    info = base + program + "/manual/" + program + "-info.tar.gz"
-    text = base + program + "/manual/" + program + ".txt"
-    dvi  = base + program + "/manual/" + program + ".dvi.gz"
-    pdf  = base + program + "/manual/" + program + ".pdf"
-    texi = base + program + "/manual/" + program + ".texi.tar.gz"
-    dlink.append(html)
-    dlink.append(info)
-    dlink.append(text)
-    dlink.append(dvi)
-    dlink.append(pdf)
-    dlink.append(texi)
+
+def processing():
     for name in xrange(len(arca)):
         if arca[name] == selection:
 #            print "hello"
-            print "[html/info/ascii/dvi/pdf/texi/all]"
-            selection = raw_input()
+            if formataccept == "alltext":
+                selection = "ascii"
+            else:
+                print "[html/info/ascii/dvi/pdf/texi/all]"
+                selection = raw_input()
             for name in xrange(6):
                 if selection == "all":
                     for name in xrange(6):
@@ -157,6 +142,39 @@ def archiving():
                         except:
                             print "Unable to find URL \n"
 
+    
+    
+    
+def archiving(accept):
+#    print "hello" 
+    arca = list()
+    form = list()
+    dlink = list()
+    arca = ['Cpio','Gzip','Paxutils','Sharutils','Tar','Xorriso']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    if acccept == "alltext":
+        for package in arca:
+            selection == package
+    else:
+        print "[Cpio/Gzip/Paxutils/Sharutils/Tar/Xorriso]"
+        selection = raw_input()
+    program = selection.lower()
+    type = official(selection)
+    base = link("archiving")
+ #   print base
+    html = base + program + "/manual/" + program + ".html"
+    info = base + program + "/manual/" + program + "-info.tar.gz"
+    text = base + program + "/manual/" + program + ".txt"
+    dvi  = base + program + "/manual/" + program + ".dvi.gz"
+    pdf  = base + program + "/manual/" + program + ".pdf"
+    texi = base + program + "/manual/" + program + ".texi.tar.gz"
+    dlink.append(html)
+    dlink.append(info)
+    dlink.append(text)
+    dlink.append(dvi)
+    dlink.append(pdf)
+    dlink.append(texi)
+    processing()
 
 
                     
@@ -1109,6 +1127,10 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "health":
         connectivity()
         health()
+
+    elif sys.argv[1] == "alltext":
+        connectivity()
+        alltext()
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
