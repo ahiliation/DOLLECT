@@ -8,6 +8,9 @@ from BeautifulSoup import *
 global stringa
 global stringb
 global formataccept
+formataccept = "initial"
+global arca
+arca = "initial"
 stringa = "(TRANS...> "
 stringb = ".pdf"
 
@@ -145,16 +148,16 @@ def processing():
     
     
     
-def archiving(accept):
+def archiving(formataccept):
 #    print "hello" 
     arca = list()
     form = list()
     dlink = list()
     arca = ['Cpio','Gzip','Paxutils','Sharutils','Tar','Xorriso']
     form = ['html','info','ascii','dvi','pdf','texi']
-    if acccept == "alltext":
+    if formataccept == "alltext":
         for package in arca:
-            selection == package
+            selection = package
     else:
         print "[Cpio/Gzip/Paxutils/Sharutils/Tar/Xorriso]"
         selection = raw_input()
