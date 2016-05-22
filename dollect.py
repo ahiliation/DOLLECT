@@ -11,6 +11,8 @@ global formataccept
 formataccept = "initial"
 global arca
 arca = "initial"
+global selection
+selection = "initial"
 stringa = "(TRANS...> "
 stringb = ".pdf"
 
