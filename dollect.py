@@ -13,6 +13,12 @@ global arca
 arca = "initial"
 global selection
 selection = "initial"
+global form
+form = "initial"
+global dlink
+dlink = 0
+global text
+text = "initial"
 stringa = "(TRANS...> "
 stringb = ".pdf"
 
@@ -124,30 +130,33 @@ def alltext():
     archiving("alltext")
     
 
-def processing(rselection):
-    for name in xrange(len(arca)):
-        print rselection
-        if arca[name] == rselection:
+def processing(receivetext):
+#    for name in xrange(len(arca)):
+#        print rselection
+#        if arca[name] == rselection:
 #            print "hello"
-            if formataccept == "alltext":
-                rselection = "ascii"
-            else:
-                print "[html/info/ascii/dvi/pdf/texi/all]"
-                selection = raw_input()
-            for name in xrange(6):
-                if rselection == "all":
-                    for name in xrange(6):
-                        filename = wget.download(dlink[name])
-                    print "\n"
-                    sys.exit(0)
-                else:
-                    if form[name] == rselection:
-                        try:
-                            filename = wget.download(dlink[name])
-                            print "\n"
-                        except:
-                            print "Unable to find URL \n"
 
+
+#    if rselection == "alltext":
+ #       rselection = "ascii"
+  #  else:
+   #     print "[html/info/ascii/dvi/pdf/texi/all]"
+    #    selection = raw_input()
+        
+#    for name in xrange(6):
+ #       if rselection == "all":
+  #          for name in xrange(6):
+   #             filename = wget.download(dlink[name])
+    #            print "\n"
+     #           sys.exit(0)
+      #  else:
+       #     if form[name] == rselection:
+        #        try:
+         #           filename = wget.download(dlink[name])
+          #          print "\n"
+           #     except:
+            #        print "Unable to find URL \n"
+    filename = wget.download(receivetext)
     
     
     
@@ -161,26 +170,44 @@ def archiving(formataccept):
     if formataccept == "alltext":
         for package in arca:
             selection = package
+            program = selection.lower()
+            type = official(selection)
+            base = link("archiving")
+
+            html = base + program + "/manual/" + program + ".html"
+            info = base + program + "/manual/" + program + "-info.tar.gz"
+            text = base + program + "/manual/" + program + ".txt"
+            dvi  = base + program + "/manual/" + program + ".dvi.gz"
+            pdf  = base + program + "/manual/" + program + ".pdf"
+            texi = base + program + "/manual/" + program + ".texi.tar.gz"
+            dlink.append(html)
+            dlink.append(info)
+            dlink.append(text)
+            dlink.append(dvi)
+            dlink.append(pdf)
+            dlink.append(texi)
+            processing(text)
+            print package
     else:
         print "[Cpio/Gzip/Paxutils/Sharutils/Tar/Xorriso]"
         selection = raw_input()
-    program = selection.lower()
-    type = official(selection)
-    base = link("archiving")
- #   print base
-    html = base + program + "/manual/" + program + ".html"
-    info = base + program + "/manual/" + program + "-info.tar.gz"
-    text = base + program + "/manual/" + program + ".txt"
-    dvi  = base + program + "/manual/" + program + ".dvi.gz"
-    pdf  = base + program + "/manual/" + program + ".pdf"
-    texi = base + program + "/manual/" + program + ".texi.tar.gz"
-    dlink.append(html)
-    dlink.append(info)
-    dlink.append(text)
-    dlink.append(dvi)
-    dlink.append(pdf)
-    dlink.append(texi)
-    processing(selection)
+        program = selection.lower()
+        type = official(selection)
+        base = link("archiving")
+
+        html = base + program + "/manual/" + program + ".html"
+        info = base + program + "/manual/" + program + "-info.tar.gz"
+        text = base + program + "/manual/" + program + ".txt"
+        dvi  = base + program + "/manual/" + program + ".dvi.gz"
+        pdf  = base + program + "/manual/" + program + ".pdf"
+        texi = base + program + "/manual/" + program + ".texi.tar.gz"
+        dlink.append(html)
+        dlink.append(info)
+        dlink.append(text)
+        dlink.append(dvi)
+        dlink.append(pdf)
+        dlink.append(texi)
+        processing(selection)
 
 
                     
