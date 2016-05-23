@@ -207,7 +207,24 @@ def archiving(formataccept):
         dlink.append(dvi)
         dlink.append(pdf)
         dlink.append(texi)
-        processing(selection)
+        for name in xrange(len(arca)):
+            if arca[name] == selection:
+#            print "hello"
+                print "[html/info/ascii/dvi/pdf/texi/all]"
+                selection = raw_input()
+                for name in xrange(6):
+                    if selection == "all":
+                        for name in xrange(6):
+                            filename = wget.download(dlink[name])
+                            print "\n"
+                            sys.exit(0)
+                    else:
+                        if form[name] == selection:
+                            try:
+                                filename = wget.download(dlink[name])
+                                print "\n"
+                            except:
+                                print "Unable to find URL \n"
 
 
                     
@@ -1111,7 +1128,7 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "archiving":
 #        print "hello"
         connectivity()
-        archiving()
+        archiving("NULL")
 
     elif sys.argv[1] == "audio":
         connectivity()
