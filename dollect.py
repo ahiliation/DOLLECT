@@ -131,31 +131,6 @@ def alltext():
     
 
 def processing(receivetext):
-#    for name in xrange(len(arca)):
-#        print rselection
-#        if arca[name] == rselection:
-#            print "hello"
-
-
-#    if rselection == "alltext":
- #       rselection = "ascii"
-  #  else:
-   #     print "[html/info/ascii/dvi/pdf/texi/all]"
-    #    selection = raw_input()
-        
-#    for name in xrange(6):
- #       if rselection == "all":
-  #          for name in xrange(6):
-   #             filename = wget.download(dlink[name])
-    #            print "\n"
-     #           sys.exit(0)
-      #  else:
-       #     if form[name] == rselection:
-        #        try:
-         #           filename = wget.download(dlink[name])
-          #          print "\n"
-           #     except:
-            #        print "Unable to find URL \n"
     filename = wget.download(receivetext)
     
     
