@@ -209,15 +209,14 @@ def archiving(formataccept):
         dlink.append(texi)
         for name in xrange(len(arca)):
             if arca[name] == selection:
-#            print "hello"
                 print "[html/info/ascii/dvi/pdf/texi/all]"
                 selection = raw_input()
                 for name in xrange(6):
                     if selection == "all":
                         for name in xrange(6):
                             filename = wget.download(dlink[name])
-                            print "\n"
-                            sys.exit(0)
+                        print "\n"
+                        sys.exit(0)
                     else:
                         if form[name] == selection:
                             try:
