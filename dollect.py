@@ -128,6 +128,7 @@ def official(accept):
 
 def alltext():
     archiving("alltext")
+    audio("alltext")
     
 
 def processing(receivetext):
@@ -204,7 +205,7 @@ def archiving(formataccept):
                     
                     
                     
-def audio():
+def audio(formataccept):
 #    print "hello" 
     audio = list()
     form = list()
@@ -223,41 +224,61 @@ def audio():
     audio.append('Speex')
     audio.append('Xhippo')
     form = ['html','info','ascii','dvi','pdf','texi']
-    print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/]"
-    print "[GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
-    selection = raw_input()
-    program = selection.lower()
-    base = link("audio")
-    html = base + program + "/manual/" + program + ".html"
-    info = base + program + "/manual/" + program + "-info.tar.gz"
-    text = base + program + "/manual/" + program + ".txt"
-    dvi  = base + program + "/manual/" + program + ".dvi.gz"
-    pdf  = base + program + "/manual/" + program + ".pdf"
-    texi = base + program + "/manual/" + program + ".texi.tar.gz"
-    dlink.append(html)
-    dlink.append(info)
-    dlink.append(text)
-    dlink.append(dvi)
-    dlink.append(pdf)
-    dlink.append(texi)
-    for name in xrange(len(audio)):
-        if audio[name] == selection:
+    if formataccept == "alltext":
+        for package in audio:
+            selection = package
+            program = selection.lower()
+            type = official(selection)
+            base = link("audio")
+            html = base + program + "/manual/" + program + ".html"
+            info = base + program + "/manual/" + program + "-info.tar.gz"
+            text = base + program + "/manual/" + program + ".txt"
+            dvi  = base + program + "/manual/" + program + ".dvi.gz"
+            pdf  = base + program + "/manual/" + program + ".pdf"
+            texi = base + program + "/manual/" + program + ".texi.tar.gz"
+            dlink.append(html)
+            dlink.append(info)
+            dlink.append(text)
+            dlink.append(dvi)
+            dlink.append(pdf)
+            dlink.append(texi)
+            processing(text)
+    else:
+        print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/]"
+        print "[GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
+        selection = raw_input()
+        program = selection.lower()
+        base = link("audio")
+        html = base + program + "/manual/" + program + ".html"
+        info = base + program + "/manual/" + program + "-info.tar.gz"
+        text = base + program + "/manual/" + program + ".txt"
+        dvi  = base + program + "/manual/" + program + ".dvi.gz"
+        pdf  = base + program + "/manual/" + program + ".pdf"
+        texi = base + program + "/manual/" + program + ".texi.tar.gz"
+        dlink.append(html)
+        dlink.append(info)
+        dlink.append(text)
+        dlink.append(dvi)
+        dlink.append(pdf)
+        dlink.append(texi)
+        for name in xrange(len(audio)):
+            if audio[name] == selection:
 #            print "hello"
-            print "[html/info/ascii/dvi/pdf/texi/all]"
-            selection = raw_input()
-            for name in xrange(6):
-                if selection == "all":
-                    for name in xrange(6):
-                        filename = wget.download(dlink[name])
-                    print "\n"
-                    sys.exit(0)
-                else:
-                    if form[name] == selection:
-                        try:
+                print "[html/info/ascii/dvi/pdf/texi/all]"
+                selection = raw_input()
+                for name in xrange(6):
+                    if selection == "all":
+                        for name in xrange(6):
                             filename = wget.download(dlink[name])
-                            print "\n"
-                        except:
-                            print "Unable to find URL \n"
+                        print "\n"
+                        sys.exit(0)
+                    else:
+                        if form[name] == selection:
+                            try:
+                                filename = wget.download(dlink[name])
+                                print "\n"
+                            except:
+                                print "Unable to find URL \n"
 
 
 
@@ -1106,7 +1127,7 @@ if len(sys.argv) > 1:
 
     elif sys.argv[1] == "audio":
         connectivity()
-        audio()
+        audio("NULL")
 
     elif sys.argv[1] == "database":
         connectivity()
