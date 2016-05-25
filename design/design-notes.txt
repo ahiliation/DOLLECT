@@ -1,3 +1,6 @@
 class datacollection:
 
 properties = download links for webdata
+we have variables like "html" "ascii"....
+these variables hold the download links.
+
