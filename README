@@ -4,7 +4,7 @@ Collecting free information from web.
 
 USAGE :
 
-[To download 17 free issues of LINUXVOICE]
+[To download 18 free issues of LINUXVOICE]
 python dollect.py lv
 
 [To select and download  1 free  issue] 
