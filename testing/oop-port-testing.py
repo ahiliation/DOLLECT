@@ -1,15 +1,20 @@
 import wget
+global ds
+ds = list()
 
 class Dollect:
+    def __init__(self, ds):
+        self.ds = ds
+      #  print ds
     global html
-    global arca
-    arca = list()
+    for package in ds:
+        print package
     html = "http://audio-video.gnu.org/video/rms-education-es-high-sub.en.ogv"
-    arca = ['Cpio','Gzip','Paxutils','Sharutils','Tar','Xorriso']
-    def download(self):
-        for package in arca:
+    def download(self,ds):
+        for package in ds:
             print package
-        filename = wget.download(html)
+       # filename = wget.download(html)
 
-dobject = Dollect()
-dobject.download()
+arca = ['Cpio','Gzip','Paxutils','Sharutils','Tar','Xorriso']
+dobject = Dollect(arca)
+dobject.download(arca)
