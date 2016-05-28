@@ -15,6 +15,8 @@ dlink = list()
 
 class GNUDollect():
     def __init__(self, base, program):
+        self.base = base
+        self.program = program
         form.append('html')
         form.append('info')
         form.append('ascii')
@@ -38,8 +40,7 @@ class GNUDollect():
    #     self.ds = ds
    # global html
 
-    def pownload(self,ds):
-        self.ds = ds
+    def pownload():
         print "[html/info/ascii/dvi/pdf/texi/all]"
         selection = raw_input()
 #        for name in xrange(6):
@@ -47,28 +48,31 @@ class GNUDollect():
             for name in xrange(6):
                 filename = wget.download(dlink[name])
             print "\n"
-            sys.exit(0)
+         #   sys.exit(0)
         else:
-            if form[name] == selection:
-                try:
-                    filename = wget.download(dlink[name])
-                    print "\n"
-                except:
-                    print "Unable to find URL \n"
+            for name in xrange(6):
+                if selection == form[name]:
+                    try:
+                        filename = wget.download(dlink[name])
+                        print "\n"
+                    except:
+                        print "Unable to find URL \n"
 
 
 
 dictionaries.append('Dico')
-print "[Dico]"
-selection = raw_input()
-selection = selection.lower()
-dict = GNUDollect("http://puszcza.gnu.org.ua/software/", selection)
-dict.pownload(dictionaries)		            
+#print "[Dico]"
+#selection = raw_input()
+#selection = selection.lower()
+dict = GNUDollect("http://puszcza.gnu.org.ua/software/", "dico")
+#dict.pownload()		            
 			        
   
 
 database.append('Gdbm')
 database.append('Libdbh')
-
-
+data = GNUDollect("http://www.gnu.org/software/", "Gdbm")
+data.pownload()
+#print "hello"
+#dict.pownload(dictionaries)
 
