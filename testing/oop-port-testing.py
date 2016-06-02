@@ -70,6 +70,34 @@ def archiving(formataccept):
 	archive.Pownload()
 
 
+def audio(formataccept):
+#    print "hello"                                                                                                            
+    audio = list()
+    form = list()
+    dlink = list()
+    audio.append('Ccd2cue')
+    audio.append('EMMS')
+    audio.append('Gmediaserver')
+    audio.append('GNUfm')
+    audio.append('GNUmp3d')
+    audio.append('GNUpod')
+    audio.append('Radio')
+    audio.append('GNUsound')
+    audio.append('Guile-SDL')
+    audio.append('Libcdio')
+    audio.append('Libextractor')
+    audio.append('Speex')
+    audio.append('Xhippo')
+    print "[Ccd2cue/EMMS/Gmediaserver/GNUfm/GNUmp3d/GNUpod/Radio/]"
+    print "[GNUsound/Guile-SDL/Libcdio/Libextractor/Speex/Xhippo]"
+    selection = raw_input()
+    program = selection.lower()
+    audio = GNUDollect("http://www.gnu.org/software/", program)
+    audio.Pownload()
+
+
+
+
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
