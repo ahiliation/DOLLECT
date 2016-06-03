@@ -95,6 +95,21 @@ def audio(formataccept):
     audio = GNUDollect("http://www.gnu.org/software/", program)
     audio.Pownload()
 
+def database(): 
+    database = list()
+    database = ['Gdbm','Libdbh']
+    print "[Gdbm/Libdbh]"
+    selection = raw_input()
+    if selection == "Libdbh":
+        program = "Libdbh"
+        leaf  = selection.lower()
+    else:
+        print "hello"
+        program = selection.lower()
+        leaf = selection.lower()
+    database = GNUDollect("http://www.gnu.org/software/" , program)
+    database.Pownload()
+
 
 
 
