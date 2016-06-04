@@ -60,6 +60,26 @@ def connectivity():
             print "Failed\n"
             sys.exit(0)
 
+def link(accept):
+#    print type(accept)
+    if  accept == "archiving" or accept == "audio" or accept == "database":
+        basegnu = "http://www.gnu.org/software/"
+        return basegnu
+    elif accept == "dictionaries":
+        basegnu = "http://puszcza.gnu.org.ua/software/"
+        return basegnu
+    elif accept == "doculation": 
+        basegnu = "http://www.gnu.org/software/trans-coord/manual/"
+        return basegnu
+    elif accept == "education" :
+        basegnu = "http://www.gnu.org/software/"
+        return basegnu
+
+
+
+
+
+
 
 
 def archiving(formataccept):
@@ -73,8 +93,6 @@ def archiving(formataccept):
 def audio(formataccept):
 #    print "hello"                                                                                                            
     audio = list()
-    form = list()
-    dlink = list()
     audio.append('Ccd2cue')
     audio.append('EMMS')
     audio.append('Gmediaserver')
@@ -110,6 +128,17 @@ def database():
     database = GNUDollect("http://www.gnu.org/software/" , program)
     database.Pownload()
 
+
+def dictionaries():
+    dictionaries = list()
+    dictionaries = ['Dico']
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Dico]"
+    selection = raw_input()
+    program = selection.lower()
+    base = link("dictionaries")
+    dictionaries = GNUDollect(base , program)
+    dictionaries.Pownload()
 
 
 
