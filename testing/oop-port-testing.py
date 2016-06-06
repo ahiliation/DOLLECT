@@ -17,12 +17,16 @@ class GNUDollect():
                 global dvi
                 global pdf
                 global texi
-                html = self.base + self.program + "/manual/" + self.program + ".html"
-                info = self.base + self.program + "/manual/" + self.program + "-info.tar.gz"
-                text = self.base + self.program + "/manual/" + self.program + ".txt"
-                dvi  = self.base + self.program + "/manual/" + self.program + ".dvi.gz"
-                pdf  = self.base + self.program + "/manual/" + self.program + ".pdf"
-                texi = self.base + self.program + "/manual/" + self.program + ".texi.tar.gz"
+                # ds = dollect string
+                ds = "/manual/"
+                if self.base == "http://www.gnu.org/software/trans-coord/manual/":
+                    ds = "/"
+                html = self.base + self.program + ds + self.program + ".html"
+                info = self.base + self.program + ds + self.program + "-info.tar.gz"
+                text = self.base + self.program + ds + self.program + ".txt"
+                dvi  = self.base + self.program + ds + self.program + ".dvi.gz"
+                pdf  = self.base + self.program + ds + self.program + ".pdf"
+                texi = self.base + self.program + ds + self.program + ".texi.tar.gz"
                 form = ['html','info','ascii','dvi','pdf','texi']
                 dlink = [html, info, text, dvi, pdf, texi]
                 print "[html/info/ascii/dvi/pdf/texi/all]"
@@ -74,11 +78,6 @@ def link(accept):
     elif accept == "education" :
         basegnu = "http://www.gnu.org/software/"
         return basegnu
-
-
-
-
-
 
 
 
@@ -140,6 +139,18 @@ def dictionaries():
     dictionaries = GNUDollect(base , program)
     dictionaries.Pownload()
 
+
+def doculation():
+#    print "hello" 
+    doculation = list()
+    doculation = ['WEB-TRANS','GNUN']
+    print "[WEB-TRANS/GNUN]"
+    selection = raw_input()
+    program = selection.lower()
+  #  print program
+    base = link("doculation")
+    doculation = GNUDollect(base , program)
+    doculation.Pownload()
 
 
 
