@@ -153,6 +153,22 @@ def doculation():
     doculation.Pownload()
 
 
+def editor():
+#   print "hello" 
+    editor = list()
+    editor = ['Moe','nano']
+    print "[Moe/nano]"
+    selection = raw_input()
+    if selection == "Moe":
+        filename = wget.download("http://www.gnu.org/software/moe/manual/moe_manual.html")
+        print "\n"
+    elif selection == "nano":
+        filename = wget.download("http://www.nano-editor.org/dist/v2.5/nano.html")
+        print "\n"
+    else:
+        sys.exit(0)
+
+
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
