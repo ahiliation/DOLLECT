@@ -170,6 +170,68 @@ def editor():
 
 
 
+def education():
+#    print "hello" 
+    education = list()
+    education.append('Dr.Geo')
+    education.append('Eprints')
+    education.append('FisicaLab')
+    education.append('GCompris')
+    education.append('Gradebook')
+    education.append('Glean')
+    education.append('GNUschool')
+    education.append('Gtypist')
+    education.append('Ignuit')
+    education.append('MDK')
+    print "[Dr.Geo/Eprints/FisicaLab/Gcompris/Gradebook/Glean/GNUschool]"
+    print "[Gtypist/Ignuit/MDK]"
+    selection = raw_input()
+    # type = official(selection)
+    program = selection.lower()
+    base = link("education")
+    if selection == "Dr.Geo":
+         print "No data available"
+         sys.exit(0)
+    elif selection == "Eprints":
+        filename = wget.download("http://wiki.eprints.org/w/EPrints_Manual")
+        print "\n"
+        sys.exit(0)
+    elif selection == "FisicaLab":
+        filename = wget.download(base + program + "/manual/en/fisicalab/index.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Gcompris":
+        filename = wget.download("http://gcompris.net/wiki/Manual")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Gradebook":
+        filename = wget.download("http://www.gnu.org/software/ggradebook/")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Glean":
+        filename = wget.download("http://glean.eu/dir/")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GNUschool":
+        filename = wget.download(base + program + "/gnuschool.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Gtypist":
+        filename = wget.download(base + program+ "/doc/")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Ignuit":
+        filename = wget.download("http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit")
+        print "\n"
+        sys.exit(0)
+	
+    doculation = GNUDollect(base , program)
+    doculation.Pownload()
+
+
+
+
+
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
         if int(sys.argv[2]) <= 9:
@@ -277,4 +339,3 @@ if len(sys.argv) > 1:
             else:
                 connectivity()
                 lvb()
-
