@@ -20,7 +20,7 @@ class GNUDollect():
                 # ds = dollect string
                 ds = "/manual/"
                 if self.base == "http://www.gnu.org/software/trans-coord/manual/":
-                    ds = "/"
+                        ds = "/"
                 html = self.base + self.program + ds + self.program + ".html"
                 info = self.base + self.program + ds + self.program + "-info.tar.gz"
                 text = self.base + self.program + ds + self.program + ".txt"
@@ -75,9 +75,26 @@ def link(accept):
     elif accept == "doculation": 
         basegnu = "http://www.gnu.org/software/trans-coord/manual/"
         return basegnu
-    elif accept == "education" :
+    elif accept == "education" or "Anubis" :
         basegnu = "http://www.gnu.org/software/"
         return basegnu
+
+
+def official(accept):
+    if accept == "Dr.Geo":
+        typeof = "non-standard"
+        return typeof
+    elif accept == "MIX Development Kit":
+        typeof = "standard"
+        return typeof
+    elif accept == "Fontopia":
+        typeof = "standard"
+        return typeof
+    elif (accept == "Acm" or accept == "GNUchess" or accept == "GNUbg" or
+          accept == "GNUbik" or accept == "LiquidWar6" or accept == "XBoard" or
+          accept == "Plotutils" or accept == "Guile-Opengl"):
+        typeof = "standard"
+        return typeof
 
 
 
@@ -225,8 +242,43 @@ def education():
         print "\n"
         sys.exit(0)
 	
-    doculation = GNUDollect(base , program)
-    doculation.Pownload()
+    education = GNUDollect(base , program)
+    education.Pownload()
+
+
+
+def email():
+#    print "hello" 
+    email = list()
+    email.append('Anubis')
+    email.append('GNUbiff')
+    email.append('Mailman')
+    email.append('Mailutils')
+    print "[Anubis/GNUbiff/Mailman/Mailutils]"
+    selection = raw_input()
+    program = selection.lower()
+  #  print program
+    base = link("Anubis")
+    if selection == "GNUbiff":
+        filename = wget.download("http://gnubiff.sourceforge.net/documentation.php")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Mailman":
+        base = "http://www.gnu.org/software/"
+        filename = wget.download(base + program + "/mailman-member.pdf")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Mailutils":
+         base = "http://mailutils.org/manual/"
+         html = base + program + ".html"
+         info = base + program + "-info.tar.gz"
+         text = base + program + ".txt"
+         dvi  = base + program + ".dvi.gz"
+         pdf  = base + program + ".pdf"
+         texi = base + program + ".texi.tar.gz"
+         
+    email = GNUDollect(base , program)
+    email.Pownload()
 
 
 
