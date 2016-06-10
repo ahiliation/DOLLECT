@@ -27,6 +27,14 @@ class GNUDollect():
                 dvi  = self.base + self.program + ds + self.program + ".dvi.gz"
                 pdf  = self.base + self.program + ds + self.program + ".pdf"
                 texi = self.base + self.program + ds + self.program + ".texi.tar.gz"
+                if self.base == "http://mailutils.org/manual/":
+                        html = self.base + self.program + ".html"
+                        info = self.base + self.program + "-info.tar.gz"
+                        text = self.base + self.program + ".txt"
+                        dvi  = self.base + self.program + ".dvi.gz"
+                        pdf  = self.base + self.program + ".pdf"
+                        texi = self.base + self.program + ".texi.tar.gz"
+                          
                 form = ['html','info','ascii','dvi','pdf','texi']
                 dlink = [html, info, text, dvi, pdf, texi]
                 print "[html/info/ascii/dvi/pdf/texi/all]"
@@ -35,14 +43,13 @@ class GNUDollect():
                         for name in xrange(6):
                                 filename = wget.download(dlink[name])
                         print "\n"
-                       # sys.exit(0)
+                        sys.exit(0)
                 else:
-                        print "helloo"
                         for name in xrange(6):
                                 if selection == form[name]:
-                                        print dlink[name]
                                         filename = wget.download(dlink[name])
                                         print "\n"
+                                        sys.exit(0)
           		            
 			        
   
@@ -270,19 +277,12 @@ def email():
         sys.exit(0)
     elif selection == "Mailutils":
          base = "http://mailutils.org/manual/"
-         html = base + program + ".html"
-         info = base + program + "-info.tar.gz"
-         text = base + program + ".txt"
-         dvi  = base + program + ".dvi.gz"
-         pdf  = base + program + ".pdf"
-         texi = base + program + ".texi.tar.gz"
+         email = GNUDollect(base , program)
+         email.Pownload()
          
     email = GNUDollect(base , program)
     email.Pownload()
-
-
-
-
+            
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
