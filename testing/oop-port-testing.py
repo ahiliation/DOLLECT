@@ -299,6 +299,48 @@ def email():
          
     email = GNUDollect(base , program)
     email.Pownload()
+
+
+
+def font():
+#    print "hello" 
+    font = list()
+    font.append('Fontopia')
+    font.append('Fontutils')
+    font.append('FreeFont')
+    font.append('Intlfonts')
+    font.append('Unifont')
+    form = ['html','info','ascii','dvi','pdf','texi']
+    print "[Fontopia/Fontutils/FreeFont/Intlfonts/Unifont]"
+    selection = raw_input()
+    program = selection.lower()
+    type = official(selection)
+    if selection == "Fontutils":
+        filename = wget.download("http://www.delorie.com/gnu/docs/fontutils/fontu_toc.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "FreeFont":
+        base = "http://www.gnu.org/software/"
+        filename = wget.download(base +  "/freefont/design-notes.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Intlfonts":
+       filename = wget.download("http://directory.fsf.org/wiki/Intlfonts")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Unifont":
+       filename = wget.download("http://unifoundry.com/unicode-tutorial.html")
+       print "\n"
+       sys.exit(0)
+                       
+    elif type == "standard" :
+        base = "http://www.gnu.org/software/"
+        email = GNUDollect(base , program)
+        email.Path()
+        email.Pownload()
+
+
+
             
 
 if len(sys.argv) > 1:
