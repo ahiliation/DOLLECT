@@ -335,9 +335,9 @@ def font():
                        
     elif type == "standard" :
         base = "http://www.gnu.org/software/"
-        email = GNUDollect(base , program)
-        email.Path()
-        email.Pownload()
+        font = GNUDollect(base , program)
+        font.Path()
+        font.Pownload()
 
 
 
