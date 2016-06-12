@@ -5,12 +5,14 @@ import urllib
 form = list()
 dlink = list()
 
+
+
 class GNUDollect():
         def __init__(self, base, program):
                 self.base = base
                 self.program = program
-
-        def Pownload(self):
+                
+        def Path(self):
                 global html
                 global info
                 global text
@@ -27,14 +29,22 @@ class GNUDollect():
                 dvi  = self.base + self.program + ds + self.program + ".dvi.gz"
                 pdf  = self.base + self.program + ds + self.program + ".pdf"
                 texi = self.base + self.program + ds + self.program + ".texi.tar.gz"
-                if self.base == "http://mailutils.org/manual/":
-                        html = self.base + self.program + ".html"
-                        info = self.base + self.program + "-info.tar.gz"
-                        text = self.base + self.program + ".txt"
-                        dvi  = self.base + self.program + ".dvi.gz"
-                        pdf  = self.base + self.program + ".pdf"
-                        texi = self.base + self.program + ".texi.tar.gz"
-                          
+
+        def PathA(self):
+                global html
+                global info
+                global text
+                global dvi
+                global pdf
+                global texi
+                html = self.base + self.program + ".html"
+                info = self.base + self.program + "-info.tar.gz"
+                text = self.base + self.program + ".txt"
+                dvi  = self.base + self.program + ".dvi.gz"
+                pdf  = self.base + self.program + ".pdf"
+                texi = self.base + self.program + ".texi.tar.gz"
+
+        def Pownload(self):
                 form = ['html','info','ascii','dvi','pdf','texi']
                 dlink = [html, info, text, dvi, pdf, texi]
                 print "[html/info/ascii/dvi/pdf/texi/all]"
@@ -110,6 +120,7 @@ def archiving(formataccept):
         selection = raw_input()
         program = selection.lower()
         archive = GNUDollect("http://www.gnu.org/software/", program)
+        archive.Path()
 	archive.Pownload()
 
 
@@ -134,6 +145,7 @@ def audio(formataccept):
     selection = raw_input()
     program = selection.lower()
     audio = GNUDollect("http://www.gnu.org/software/", program)
+    audio.Path()
     audio.Pownload()
 
 def database(): 
@@ -149,6 +161,7 @@ def database():
         program = selection.lower()
         leaf = selection.lower()
     database = GNUDollect("http://www.gnu.org/software/" , program)
+    database.Path()
     database.Pownload()
 
 
@@ -161,6 +174,7 @@ def dictionaries():
     program = selection.lower()
     base = link("dictionaries")
     dictionaries = GNUDollect(base , program)
+    dictionaries.Path()
     dictionaries.Pownload()
 
 
@@ -174,6 +188,7 @@ def doculation():
   #  print program
     base = link("doculation")
     doculation = GNUDollect(base , program)
+    doculation.Path()
     doculation.Pownload()
 
 
@@ -250,6 +265,7 @@ def education():
         sys.exit(0)
 	
     education = GNUDollect(base , program)
+    education.Path()
     education.Pownload()
 
 
@@ -278,6 +294,7 @@ def email():
     elif selection == "Mailutils":
          base = "http://mailutils.org/manual/"
          email = GNUDollect(base , program)
+         email.PathA()
          email.Pownload()
          
     email = GNUDollect(base , program)
