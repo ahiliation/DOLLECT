@@ -1,6 +1,7 @@
 import wget
 import sys
 import urllib
+import os
 
 form = list()
 dlink = list()
@@ -338,6 +339,21 @@ def font():
         font = GNUDollect(base , program)
         font.Path()
         font.Pownload()
+
+
+def organization():
+    print "[ GNU organization ]"
+    try:
+        filename = wget.download("http://www.gnu.org/prep")
+      #  print "\n name of the downloaded document is", filename
+        os.rename ('prep', 'prep.html') 
+    except:
+        print "hello"
+  #  for method in dir(wget):
+  #      if callable(getattr(wget, method)):
+  #         print method
+    print "\n"
+    sys.exit(0)
 
 
 
