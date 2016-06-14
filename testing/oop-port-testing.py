@@ -357,6 +357,63 @@ def organization():
 
 
 
+def game():
+#    print "hello" 
+    game = list()
+    game.append('Acm')
+    game.append('BallandPaddle')
+    game.append('GNUChess')
+    game.append('Dominion')
+    game.append('GNUbg')
+    game.append('GNUbik')
+    game.append('GNUgo')
+    game.append('GNUjump')
+    game.append('GNUkart')
+    game.append('GNUrobots')
+    game.append('GNUshogi')
+    game.append('Leg')
+    game.append('LiquidWar6')
+    game.append('Motti')
+    game.append('Rpge')
+    game.append('Talkfilters')
+    game.append('XBoard')
+    print "[Acm/BallandPaddle/GNUChess/Dominion/GNUbg]"
+    print "[GNUbik/GNUgo/GNUjump/GNUkart/GNUrobots/GNUshogi]"
+    print "[Leg/LiquidWar6/Motti/Rpge/Talkfilters/XBoard]"
+    selection = raw_input()
+    program = selection.lower()
+    type = official(selection)
+    if type == "standard" :
+        base = "http://www.gnu.org/software/"
+        game = GNUDollect(base , program)
+        game.Path()
+        game.Pownload()
+    elif selection == "GNUgo":
+      #  print "hello"
+        filename = wget.download("http://www.gnu.org/software/gnugo/gnugo_toc.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GNUrobots":
+        filename = wget.download("http://www.gnu.org/software/gnurobots/readme.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "Motti":
+       filename = wget.download("http://www.gnu.org/software/motti/manual/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Rpge":
+       filename = wget.download("http://www.gnu.org/software/rpge/rpge.pdf")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Talkfilters":
+       filename = wget.download("http://www.hyperrealm.com/talkfilters/talkfilters.pdf")
+       print "\n"
+       sys.exit(0)
+    else:
+        print "\n"
+        sys.exit(0)
+
+
             
 
 if len(sys.argv) > 1:
