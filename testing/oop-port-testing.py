@@ -45,9 +45,55 @@ class GNUDollect():
                 pdf  = self.base + self.program + ".pdf"
                 texi = self.base + self.program + ".texi.tar.gz"
 
+        def PathB(self):
+                global html
+                global info
+                global text
+                global dvi
+                global pdf
+                global texi
+                html = self.base + self.program + "/manual/" + "en/" + self.program + ".html"
+                info = self.base + self.program + "/manual/" + "en/" + self.program + "-info.tar.gz"
+                text = self.base + self.program + "/manual/" + "en/" + self.program + ".txt"
+                dvi  = self.base + self.program + "/manual/" + "en/" + self.program + ".dvi.gz"
+                pdf  = self.base + self.program + "/manual/" + "en/" + self.program + ".pdf"
+                texi = self.base + self.program + "/manual/" + "en/" + self.program + ".texi.tar.gz"
+
+
+        def PathC(self):
+                global html
+                global targz
+                global htmlgz
+                global ps
+                global pdf
+                global pdfgz
+                
+                html =    self.base + self.program + "/manual/" + "user_ref/" + selection + ".html"
+                targz =   self.base + self.program + "/manual/" + "user_ref/" + selection + ".tar.gz"
+                htmlgz =  self.base + self.program + "/manual/" + "user_ref/" + selection + ".html.gz"
+                ps  =     self.base + self.program + "/manual/" + "user_ref/" + selection + ".ps.gz"
+                pdf  =    self.base + self.program + "/manual/" + "user_ref/" + selection + ".pdf"
+                pdfgz =   self.base + self.program + "/manual/" + "user_ref/" + selection + ".pdf.gz"
+                
         def Pownload(self):
                 form = ['html','info','ascii','dvi','pdf','texi']
-                dlink = [html, info, text, dvi, pdf, texi]
+                if selection == "3DLDF":
+                        dlink.append(html)
+                        dlink.append(targz)
+                        dlink.append(htmlgz)
+                        dlink.append(ps)
+                        dlink.append(pdf)
+                        dlink.append(pdfgz)
+                elif type == "standard":
+                        dlink.append(html)
+                        dlink.append(info)
+                        dlink.append(text)
+                        dlink.append(dvi)
+                        dlink.append(pdf)
+                        dlink.append(texi)
+                else:
+                        dlink = [html, info, text, dvi, pdf, texi]
+                        
                 print "[html/info/ascii/dvi/pdf/texi/all]"
                 selection = raw_input()
                 if selection == "all":
@@ -410,6 +456,69 @@ def game():
        print "\n"
        sys.exit(0)
     else:
+        print "\n"
+        sys.exit(0)
+
+
+def graphics():
+#    print "hello" 
+    graphics = list()
+    graphics.append('3DLDF')
+    graphics.append('Dia')
+    graphics.append('GIFT')
+    graphics.append('GIMP')
+    graphics.append('Gpaint')
+    graphics.append('GSEgrafix')
+    graphics.append('Guile-Opengl')
+    graphics.append('MAVERIK')
+    graphics.append('Panorama')
+    graphics.append('Plotutils')
+    graphics.append('XaoS')
+    graphics.append('Libxmi')
+    print "[3DLDF/Dia/GIFT/GIMP/Gpaint/GSEgrafix/Guile-Opengl]"
+    print "[MAVERIK/Panorama/Plotutils/XaoS]"
+    selection = raw_input()
+    program = selection.lower()
+    type = official(selection)
+    if type == "standard" :
+        print "hello"
+        base = "http://www.gnu.org/software/"
+        graphics = GNUDollect(base, program)
+        graphics.PathB()
+        graphics.Pownload()
+
+    elif selection == "3DLDF":
+        base = "http://www.gnu.org/software/"
+        graphics = GNUDollect(base, program)
+        graphics.PathC()
+        graphics.Pownload()
+        
+    elif selection == "Dia":
+       # print "hello"
+        filename = wget.download("http://dia-installer.de/doc/en/dia-manual.chm")
+        print "\n"
+        sys.exit(0)
+    elif selection == "GIMP":
+        filename = wget.download("http://www.gimp.org/man/gimp.html")
+        print "\n"
+        sys.exit(0)
+    elif selection == "XaoS":
+       filename = wget.download("http://xaos.sourceforge.net/doc-trunk/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "GSEgrafix":
+       filename = wget.download("http://www.gnu.org/software/gsegrafix/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "MAVERIK":
+       filename = wget.download("http://www.gnu.org/software/maverik/")
+       print "\n"
+       sys.exit(0)
+    elif selection == "Libxmi":
+       filename = wget.download("http://www.gnu.org/software/libxmi/")
+       print "\n"
+       sys.exit(0)
+     else:
         print "\n"
         sys.exit(0)
 
