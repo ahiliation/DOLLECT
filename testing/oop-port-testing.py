@@ -75,8 +75,9 @@ class GNUDollect():
                 pdf  =    self.base + self.program + "/manual/" + "user_ref/" + selection + ".pdf"
                 pdfgz =   self.base + self.program + "/manual/" + "user_ref/" + selection + ".pdf.gz"
                 
-        def Pownload(self):
+        def Pownload(selection):
                 form = ['html','info','ascii','dvi','pdf','texi']
+                dlink = [html, info, text, dvi, pdf, texi]
                 if selection == "3DLDF":
                         dlink.append(html)
                         dlink.append(targz)
@@ -84,15 +85,6 @@ class GNUDollect():
                         dlink.append(ps)
                         dlink.append(pdf)
                         dlink.append(pdfgz)
-                elif type == "standard":
-                        dlink.append(html)
-                        dlink.append(info)
-                        dlink.append(text)
-                        dlink.append(dvi)
-                        dlink.append(pdf)
-                        dlink.append(texi)                        
-                else:
-                        dlink = [html, info, text, dvi, pdf, texi]
                         
                 print "[html/info/ascii/dvi/pdf/texi/all]"
                 selection = raw_input()
@@ -477,6 +469,7 @@ def graphics():
     graphics.append('Libxmi')
     print "[3DLDF/Dia/GIFT/GIMP/Gpaint/GSEgrafix/Guile-Opengl]"
     print "[MAVERIK/Panorama/Plotutils/XaoS]"
+    global selection
     selection = raw_input()
     program = selection.lower()
     type = official(selection)
@@ -491,7 +484,7 @@ def graphics():
         base = "http://www.gnu.org/software/"
         graphics = GNUDollect(base, program)
         graphics.PathC()
-        graphics.Pownload()
+        graphics.Pownload("3DLDF")
         
     elif selection == "Dia":
        # print "hello"
@@ -518,7 +511,7 @@ def graphics():
        filename = wget.download("http://www.gnu.org/software/libxmi/")
        print "\n"
        sys.exit(0)
-     else:
+    else:
         print "\n"
         sys.exit(0)
 
