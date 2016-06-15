@@ -90,7 +90,7 @@ class GNUDollect():
                         dlink.append(text)
                         dlink.append(dvi)
                         dlink.append(pdf)
-                        dlink.append(texi)
+                        dlink.append(texi)                        
                 else:
                         dlink = [html, info, text, dvi, pdf, texi]
                         
