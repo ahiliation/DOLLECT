@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+5# -*- coding: utf-8 -*-
 import wget
 import sys
 import os
@@ -1045,7 +1045,7 @@ def lvb():
     a = stringf + str(i)  + stringe 
     b = str(i) + stringb
     try:
-        if i <= 18:
+        if i <= 20:
 #           print stringa + stringh  + str(i) + stringb
             convertednext = decimal_roman(i)
             print stringa + " " +"LINUXVOICE" + " " + convertednext
@@ -1089,7 +1089,7 @@ if len(sys.argv) > 1:
             connectivity()
             lva()
             sys.exit(0)
-        elif int(sys.argv[2]) <= 18:
+        elif int(sys.argv[2]) <= 20:
             #debug
             i = int(sys.argv[2])
             connectivity()
@@ -1179,7 +1179,7 @@ if len(sys.argv) > 1:
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
-        for i in xrange(18):
+        for i in xrange(20):
             if i == 0:
                 continue
             if i <= 9:
