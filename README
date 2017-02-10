@@ -29,6 +29,7 @@ python dollect.py [gcc]
 		  [game]
 		  [graphics]
 		  [health]
+		  
 [To download a collection of text files from GNU project]
 python dollect.py alltext
 
