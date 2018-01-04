@@ -7,6 +7,7 @@ import (
 //    "gopkg.in/cheggaaa/pb.v2"
 //    "time"
     "fmt"
+    "reflect"
 
 )
 
@@ -25,7 +26,8 @@ func downloadFile(filepath string, url string) (err error) {
   // Get the data
   // for i := 0; i < count; i++ {
   resp, err := http.Get(url) 
-  println(resp)   
+  fmt.Println(resp)
+  
   if err != nil {
     return err
   }
@@ -34,12 +36,13 @@ func downloadFile(filepath string, url string) (err error) {
   // }
   // bar.Finish()
   defer resp.Body.Close()
+//  fmt.Println(reflect.TypeOf(resp.Body))
 
   // Writer the body to file
   _, err = io.Copy(out, resp.Body)
   if err != nil  {
     return err
-  }
+ }
 
   return nil
 }
