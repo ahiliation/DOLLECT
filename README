@@ -1,1 +1,48 @@
 SOURCE CODE SHARING PROJECT FOR KNOWLEDGE BUILDING
+
+
+
+
+<.Dollect.> -- is the first project in our typical source code sharing work.
+
+Collecting free information from web.
+
+USAGE :
+
+[To download 32 free issues of LINUXVOICE]
+python src/dollect/swade/swade.py lv
+
+[To select and download  1 free  issue] 
+python src/dollect/swade/swade.py lv <issue number>
+
+[To download files from OREILLY]
+python src/dollect/swade/swade.py oreilly 
+
+[To download files from GNU project]
+python src/dollect/swade/swade.py [gcc]
+                  [gdb]
+		  [archiving]
+		  [audio]
+		  [database]
+		  [dictionaries]
+		  [doculation]
+		  [editor]
+		  [education]
+		  [email]
+		  [font]
+		  [organization]
+		  [game]
+		  [graphics]
+		  [health]
+		  
+[To download a collection of text files from GNU project]
+python src/dollect/swade/swade.py alltext
+
+[To download a collection of files from tldp project]
+python src/dollect/swade/swade.py tldp
+
+[To download a typical FLOSS manual]
+python src/dollect/swade/swade.py floss
+
+
+[ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 
