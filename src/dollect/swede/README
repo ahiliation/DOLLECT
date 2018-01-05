@@ -1,0 +1,43 @@
+<.Dollect.>
+
+Collecting free information from web.
+
+USAGE :
+
+[To download 32 free issues of LINUXVOICE]
+python swede.py lv
+
+[To select and download  1 free  issue] 
+python swede.py lv <issue number>
+
+[To download files from OREILLY]
+python swede.py oreilly 
+
+[To download files from GNU project]
+python swede.py [gcc]
+                  [gdb]
+		  [archiving]
+		  [audio]
+		  [database]
+		  [dictionaries]
+		  [doculation]
+		  [editor]
+		  [education]
+		  [email]
+		  [font]
+		  [organization]
+		  [game]
+		  [graphics]
+		  [health]
+		  
+[To download a collection of text files from GNU project]
+python swede.py alltext
+
+[To download a collection of files from tldp project]
+python swede.py tldp
+
+[To download a typical FLOSS manual]
+python swede.py floss
+
+
+[ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 
