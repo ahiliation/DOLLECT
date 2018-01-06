@@ -2,6 +2,56 @@ import wget
 import sys
 import urllib
 import os
+from BeautifulSoup import *
+
+global stringa
+global stringb
+global formataccept
+formataccept = "initial"
+global arca
+arca = "initial"
+global selection
+selection = "initial"
+global form
+form = "initial"
+global dlink
+dlink = 0
+global text
+text = "initial"
+stringa = "(TRANS...> "
+stringb = ".pdf"
+
+
+programming = list()
+programming.append('how-to-make-mistakes-in-python.pdf')
+programming.append('object-oriented-vs-functional-programming.pdf')
+programming.append('analyzing-visualizing-data-f-sharp.pdf')
+programming.append('java-the-legend.pdf')
+programming.append('why-rust.pdf')
+programming.append('introducing-java-8.pdf')
+programming.append('engineering-managers-guide-design-patterns.pdf')
+programming.append('azure-for-developers.pdf')
+programming.append('c++-today.pdf')
+programming.append('functional-programming-python.pdf')
+programming.append('python-in-education.pdf')
+programming.append('from-future-import-python.pdf')
+programming.append('software-architecture-patterns.pdf')
+programming.append('migrating-cloud-native-application-architectures.pdf')
+programming.append('getting-started-with-innersource.pdf')
+
+data = list()
+data.append('evaluating-machine-learning-models.pdf')
+data.append('going-pro-in-data-science.pdf')
+data.append('ten-signs-of-data-science-maturity.pdf')
+data.append('what-is-data-science.pdf')
+data.append('data-driven.pdf')
+data.append('what-is-database-design-anyway.pdf')
+
+
+
+
+
+
 
 form = list()
 dlink = list()
@@ -110,6 +160,44 @@ class GNUDollect():
 #dict.Pownload()
 #data.Pownload()
 
+def decimal_roman(count):
+    input = int(count)
+#[debug]    print input
+#[debug]    print type(input)
+    roman = []
+#    del roman[:]
+    while input >= 1000:
+        roman.append("M")
+        input -= 1000
+    while input >= 500:
+        roman.append("D")
+        input -= 500
+    while input >= 100:
+        roman.append("C")
+        input -= 100
+    while input >= 50:
+        roman.append("L")
+        input -= 50
+    while input >= 10:
+        roman.append("X")
+        input -= 10
+    while input >= 5:
+        roman.append("V")
+        input -= 5
+    while input >= 1:
+        roman.append("I")
+        input -= 1
+    back = ''.join(roman)
+    return back
+
+
+
+
+
+
+
+
+
 def connectivity():
         check = "https://www.google.co.in"
         print "Internet Connectivity.........",
@@ -119,6 +207,8 @@ def connectivity():
         except:
             print "Failed\n"
             sys.exit(0)
+
+
 
 def link(accept):
 #    print type(accept)
@@ -516,7 +606,124 @@ def graphics():
         sys.exit(0)
 
 
-            
+def links():
+    try:
+        print "Links"
+        print "http://learnyouahaskell.com/chapters"
+        print "http://www.minimalprogramming.org/html/index.html"
+        print "http://book.realworldhaskell.org/read/"
+        print "http://dev.stephendiehl.com/fun/"
+        print "http://c.codeindepth.com/"
+        print "https://gcc.gnu.org/faq.html"
+        print "http://www.gnu.org/software/emacs/manual/html_node/emacs/index.html"
+        print "http://www.gnu.org/software/emacs/manual/html_node/eintr/index.html"
+        print "http://www.gnu.org/software/emacs/manual/html_node/elisp/index.html"
+        print "\nLink Opener/Tester"
+        link = raw_input()
+        html = urllib.urlopen(link)
+       # print page.read()
+        soup = BeautifulSoup(html)
+        tags = soup('body')
+        print tags
+     #   print dir(body.text)
+      #  content = body.text()
+     #   print type(content)
+     #   print content
+     #   for line in fhand:
+      #      print line.rstrip()
+    except:
+        print "\n Did something else happen ? \n"
+    
+
+
+
+def oreilly(accept):
+    stringi = "https://www.oreilly.com/"
+    if accept == "programming":
+        stringj = "programming/free/files/"
+        e = stringi + stringj
+        print stringa,
+        for count in xrange(len(programming)):
+            f = programming[count]
+            print f + "\n"
+            filename = wget.download(e+f)
+            print "\n"
+        print ("\n Completed \n")
+        sys.exit(0)
+    elif accept == "data":
+        stringk = "data/free/files/"
+        datac = stringi + stringk
+        print stringa
+        for count in xrange(len(data)):
+            dataf = data[count]
+            print dataf
+            filename = wget.download(datac + dataf)
+            print "\n"
+        print ("\n Completed \n")
+        sys.exit(0)
+
+
+def tldp():
+    try:
+        print stringa
+        print "GNU/Linux HOWTOs"
+        filename = wget.download("http://tldp.org/Linux-HOWTO-pdf.tar.gz")
+        print "\nCompleted\n"
+    except:
+        print "\n Did something else happen ? \n"
+
+
+def floss():
+    try:
+        print stringa
+        print "FLOSS manual"
+        filename = wget.download("https://en.flossmanuals.net/_booki/command-line/command-line.pdf") 
+        print "\nCompleted\n"
+        
+    except:
+        print "\n Did something else happen ? \n"
+
+
+
+
+def lva():
+    stringc = "http://www.linuxvoice.com/issues/00"
+    stringd = "/Linux-Voice-Issue-00"
+    stringg = "Linux-Voice-Issue-00"
+    c = stringc  + str(i)  + stringd 
+    d =  str(i) + stringb
+    try:
+        if i >= 1:
+#           print stringa  + stringg + str(i) + stringb
+            converted = decimal_roman(i)
+            print stringa + " " +"LINUXVOICE" + " " + converted 
+            filename = wget.download(c+d)
+            print "\nCompleted\n"
+    except:
+        print "\n Did something else happen ?  \n"
+    
+def lvb():
+    stringe = "/Linux-Voice-Issue-0"
+    stringf = "http://www.linuxvoice.com/issues/0"
+    stringh = "Linux-Voice-Issue-0"
+    if i > 27:
+        stringf = "http://www.linuxvoice.com/issues/"
+        a = stringf
+        b = stringe + str(i) + stringb
+    else:
+        a = stringf + str(i)  + stringe
+        b = str(i) + stringb
+    try:
+        if i <= 32:
+#           print stringa + stringh  + str(i) + stringb
+            convertednext = decimal_roman(i)
+            print stringa + " " +"LINUXVOICE" + " " + convertednext
+            filename = wget.download(a+b)
+            print "\nCompleted\n"
+    except:
+        print "\n Did something else happen ?  \n"
+
+
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
@@ -526,7 +733,7 @@ if len(sys.argv) > 1:
             connectivity()
             lva()
             sys.exit(0)
-        elif int(sys.argv[2]) <= 18:
+        elif int(sys.argv[2]) <= 32:
             #debug
             i = int(sys.argv[2])
             connectivity()
@@ -616,7 +823,7 @@ if len(sys.argv) > 1:
         
     else:
         print "\n LINUXVOICE COMPLETE \n"
-        for i in xrange(18):
+        for i in xrange(32):
             if i == 0:
                 continue
             if i <= 9:
