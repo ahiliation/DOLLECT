@@ -5,16 +5,16 @@ Collecting free information from web.
 USAGE :
 
 [To download 32 free issues of LINUXVOICE]
-python src/dollect/swade/swade.py lv
+python src/dollect/swade.py lv
 
 [To select and download  1 free  issue] 
-python src/dollect/swade/swade.py lv <issue number>
+python src/dollect/swade.py lv <issue number>
 
 [To download files from OREILLY]
-python src/dollect/swade/swade.py oreilly 
+python src/dollect/swade.py oreilly 
 
 [To download files from GNU project]
-python src/dollect/swade/swade.py [gcc]
+python src/dollect/swade.py [gcc]
                   [gdb]
 		  [archiving]
 		  [audio]
@@ -31,13 +31,13 @@ python src/dollect/swade/swade.py [gcc]
 		  [health]
 		  
 [To download a collection of text files from GNU project]
-python src/dollect/swade/swade.py alltext
+python src/dollect/swade.py alltext
 
 [To download a collection of files from tldp project]
-python src/dollect/swade/swade.py tldp
+python src/dollect/swade.py tldp
 
 [To download a typical FLOSS manual]
-python src/dollect/swade/swade.py floss
+python src/dollect/swade.py floss
 
 
 [ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 

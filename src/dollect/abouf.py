@@ -17,7 +17,7 @@ mag = 0
 global urlb
 filetype = ".pdf"
 
-url = "https://archive.org/download/Linux-For-You-Issue-78/Linux-For-You-78-2009-07.pdf"
+# url = "https://archive.org/download/Linux-For-You-Issue-78/Linux-For-You-78-2009-07.pdf"
 
 
 def download_file(url):
