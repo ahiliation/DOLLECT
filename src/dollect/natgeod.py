@@ -39,52 +39,33 @@ def file_exists(url):
 
 
 # download_file(url)
-
-def natgeo():
+def natgeo1966():
     global year
     global month
     global mag
     global urlb
-    for countyear in xrange(24):
-        year = year + 1
+    year = year + 1
       #  print "year is ", year
-        if  year == 1966:
-            for countfirst in xrange(12):
-                month = month + 1
+    if  year == 1966:
+        for countfirst in xrange(12):
+            month = month + 1
            #     print "month is", month 
-                if month > 9:
-                    urla = string1 + str(year) + "05/" + str(year)+ "-" + str(month)                     
+            if month > 9:
+                urla = string1 + str(year) + "05/" + str(year)+ "-" + str(month)                     
                    # urlb = string2 + str(year) + "-" + str(month)
-                else:
-                    urla = string1 + str(year) + "05/" + str(year)+ "-" + "0" + str(month)
+            else:
+                urla = string1 + str(year) + "05/" + str(year)+ "-" + "0" + str(month)
                   #  urlb =  string2 + str(year) + "-" + "0" + str(month)
-                filetype = ".pdf"
-                url = urla + filetype 
-                decision = file_exists(url)
-                if decision == True:
-                    download_file(url)
-                else:
-	            continue
-        else:
-            month = 0
-            for countmonth in xrange(12):
-                month = month + 1
-              #  print "month is ", month 
-                if month > 9:
-                    urla = string1 + string2 + str(year) + "-" + str(month) + "/"                     
-                    urlb = string2 + str(year) + "-" + str(month)
-                else:
-                    urla = string1 + string2 + str(year) + "-" + "0" + str(month) + "/"
-                    urlb =  string2 + str(year) + "-" + "0" + str(month)
-                filetype = ".pdf"
-                url = urla + urlb + filetype 
-                decision = file_exists(url)
-                if decision == True:
-                    download_file(url)
-                else:
-	            continue
+            filetype = ".pdf"
+            url = urla + filetype 
+            decision = file_exists(url)
+            if decision == True:
+                download_file(url)
+            else:
+	        continue
+     
                 
-natgeo()
+natgeo1966()
                       
         
 	
