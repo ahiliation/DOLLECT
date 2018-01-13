@@ -56,7 +56,7 @@ def natgeo1966():
             else:
                 urla = string1 + str(year) + "05/" + str(year)+ "-" + "0" + str(month)
                   #  urlb =  string2 + str(year) + "-" + "0" + str(month)
-            filetype = ".pdf"
+            filetype = ".PDF"
             url = urla + filetype 
             decision = file_exists(url)
             if decision == True:
