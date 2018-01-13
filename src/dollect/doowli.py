@@ -2,13 +2,13 @@ import wget
 import requests
 import urllib2
 
-# february 2003
+# march 1994
 
 string1 = "https://archive.org/download/"
 string2 = "Linux-Journal-"
 
 global year 
-year = 1993
+year = 2004
 global month
 month = 2
 global urlb
@@ -19,6 +19,10 @@ filetype = ".pdf"
 
 def download_file(url):
     global urlb
+    global month
+    global year
+    print "\n"
+    print " Linux Journal -- Year :", year , "Month:", month
     filename = wget.download(url) 
 
 def file_exists(url):
@@ -43,11 +47,11 @@ def lj():
     global urlb
     for countyear in xrange(24):
         year = year + 1
-        print "year is ", year
+      #  print "year is ", year
         if  year == 1994:
             for countfirst in xrange(10):
                 month = month + 1
-                print "month is", month 
+           #     print "month is", month 
                 if month > 9:
                     urla = string1 + string2 + str(year) + "-" + str(month) + "/"                     
                     urlb = string2 + str(year) + "-" + str(month)
@@ -65,7 +69,7 @@ def lj():
             month = 0
             for countmonth in xrange(12):
                 month = month + 1
-                print "month is ", month 
+              #  print "month is ", month 
                 if month > 9:
                     urla = string1 + string2 + str(year) + "-" + str(month) + "/"                     
                     urlb = string2 + str(year) + "-" + str(month)
