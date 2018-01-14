@@ -5,10 +5,7 @@ import urllib2
 # september 22 1888
 
 string1 = "https://archive.org/download/"
-string2 = "05"
-
-global year 
-year = 1965
+global year
 global month
 month = 0
 global urlb
@@ -35,38 +32,40 @@ def file_exists(url):
         return False
 
 
-
-
-
-# download_file(url)
-def natgeo1966():
-    global year
+def natgc(pyear):
     global month
-    global mag
-    global urlb
-    year = year + 1
-      #  print "year is ", year
-    if  year == 1966:
-        for countfirst in xrange(12):
-            month = month + 1
-           #     print "month is", month 
-            if month > 9:
-                urla = string1 + str(year) + "05/" + str(year)+ "-" + str(month)                     
-                   # urlb = string2 + str(year) + "-" + str(month)
-            else:
-                urla = string1 + str(year) + "05/" + str(year)+ "-" + "0" + str(month)
-                  #  urlb =  string2 + str(year) + "-" + "0" + str(month)
-            filetype = ".PDF"
-            url = urla + filetype 
-            decision = file_exists(url)
-            if decision == True:
-                download_file(url)
-            else:
-	        continue
+    global year
+    year = pyear
+    for countfirst in xrange(12):
+        month = month + 1
+           #     print "month is", month
+        if year == 1966:
+            number = "05"
+        elif year == 1957:
+            number = "03" 
+        elif year == 1955:
+            number = "NationalGeographic1955"
+        if month > 9:
+	    urla = string1 + str(year) + number + "/" + str(year)+ "-" + str(month) 	
+            if year == 1955:
+                urla = string1 + number + "/" + str(year)+ "-" + str(month)                             
+        else:
+            urla = string1 + str(year) + number + "/" + str(year)+ "-" + "0" + str(month) 
+            if year == 1955: 
+                urla = string1 + number + "/" + str(year)+ "-" + "0" +str(month)
+        filetype = ".PDF"
+        url = urla + filetype 
+        decision = file_exists(url)
+        if decision == True:
+            download_file(url)
+        else:
+	    continue
+
      
                 
-natgeo1966()
-                      
+#natgc(1966)
+#natgc(1957)
+#natgc(1955)                      
         
 	
 
