@@ -38,7 +38,7 @@ def download_file(url):
     return
 
 
-def file_exists(url):
+def file_avails(url):
     request = urllib2.Request(url)
     request.get_method = lambda : 'HEAD'
     try:
@@ -74,7 +74,7 @@ def lfy():
                     urlb = string3 + "-" + str(mag) + "-" + str(year) + "-" + "0" + str(month)
                 filetype = ".pdf"
                 url = urla + urlb + filetype 
-                decision = file_exists(url)
+                decision = file_avails(url)
                 if decision == True:
                     download_file(url)
                 else:
@@ -93,7 +93,7 @@ def lfy():
                     urlb = string3 + "-" + str(mag) + "-" + str(year) + "-" + "0" + str(month)
                 filetype = ".pdf"
                 url = urla + urlb + filetype 
-                decision = file_exists(url)
+                decision = file_avails(url)
                 if decision == True:
                     download_file(url)
                 else:
