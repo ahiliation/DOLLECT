@@ -25,7 +25,7 @@ def download_file(url):
     print " Linux Journal -- Year :", year , "Month:", month
     filename = wget.download(url) 
 
-def file_avails(url):
+def file_avail(url):
     request = urllib2.Request(url)
     request.get_method = lambda : 'HEAD'
     try:
@@ -60,7 +60,7 @@ def lj():
                     urlb =  string2 + str(year) + "-" + "0" + str(month)
                 filetype = ".pdf"
                 url = urla + urlb + filetype 
-                decision = file_avails(url)
+                decision = file_avail(url)
                 if decision == True:
                     download_file(url)
                 else:
@@ -78,7 +78,7 @@ def lj():
                     urlb =  string2 + str(year) + "-" + "0" + str(month)
                 filetype = ".pdf"
                 url = urla + urlb + filetype 
-                decision = file_avails(url)
+                decision = file_avail(url)
                 if decision == True:
                     download_file(url)
                 else:

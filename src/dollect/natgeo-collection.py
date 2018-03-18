@@ -22,7 +22,7 @@ def download_file(url):
     print " National Geographic --- Year :", year , "Month:", month
     filename = wget.download(url) 
 
-def file_avails(url):
+def file_avail(url):
     request = urllib2.Request(url)
     request.get_method = lambda : 'HEAD'
     try:
@@ -55,7 +55,7 @@ def natgc(pyear):
                 urla = string1 + number + "/" + str(year)+ "-" + "0" +str(month)
         filetype = ".PDF"
         url = urla + filetype 
-        decision = file_avails(url)
+        decision = file_avail(url)
         if decision == True:
             download_file(url)
         else:
