@@ -51,11 +51,10 @@ def download_file(url):
     f.close()
     return
 
-/* This function is related to https://gist.github.com/dehowell/884204 */
+ # This function is related to https://gist.github.com/dehowell/884204 
 def file_avail(url):
     request = urllib2.Request(url)
     request.get_method = lambda : 'HEAD'
-    try:
         response = urllib2.urlopen(request)
         return True
     except urllib2.HTTPError:
