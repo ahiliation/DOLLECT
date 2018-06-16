@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This file is part of Dollect - this file does automated download of some GNU documentation also others.
+This file is part of Dollect - this file does automated download of some GNU documentation and also others.
 Copyright (C) 2018 Jeffrin Jose T <ahiliation@yahoo.co.in>
 
 This program is free software; you can redistribute it and/or
