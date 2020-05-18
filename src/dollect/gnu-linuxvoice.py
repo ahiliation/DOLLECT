@@ -1,6 +1,8 @@
+#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 """
 Copyright (C) 2018 Rajagiri SET <https://www.rajagiritech.ac.in/>
+
 This file is part of Dollect - this file does automated download of some GNU documentation and also others.
 
 This program is free software; you can redistribute it and/or
@@ -11,7 +13,7 @@ of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
@@ -23,6 +25,8 @@ import wget
 import sys
 import os
 import urllib
+# from pathlib import Path
+from os.path import expanduser
 from BeautifulSoup import *
 
 global stringa
@@ -1048,20 +1052,26 @@ def lva():
     stringg = "Linux-Voice-Issue-00"
     c = stringc  + str(i)  + stringd 
     d =  str(i) + stringb
+   # home = str(Path.home())
+    home = expanduser("~")
     try:
         if i >= 1:
-#           print stringa  + stringg + str(i) + stringb
+       #     print stringa  + stringg + str(i) + stringb
             converted = decimal_roman(i)
-            print stringa + " " +"LINUXVOICE" + " " + converted 
-            filename = wget.download(c+d)
+            print stringa + " " +"LINUXVOICE" + " " + converted
+            if os.path.exists(home+"/"+stringg+d):
+                exit()
+            filename = wget.download(c+d,home)
             print "\nCompleted\n"
     except:
-        print "\n Did something else happen ?  \n"
+        print "\n SKIP: the file may elready exist \n"
     
 def lvb():
     stringe = "/Linux-Voice-Issue-0"
     stringf = "http://www.linuxvoice.com/issues/0"
     stringh = "Linux-Voice-Issue-0"
+   # home = str(Path.home())
+    home = expanduser("~")
     if i > 27:
         stringf = "http://www.linuxvoice.com/issues/"
         a = stringf
@@ -1074,10 +1084,12 @@ def lvb():
 #           print stringa + stringh  + str(i) + stringb
             convertednext = decimal_roman(i)
             print stringa + " " +"LINUXVOICE" + " " + convertednext
-            filename = wget.download(a+b)
+            if os.path.exists(home+"/"+stringh+b):
+                exit()
+            filename = wget.download(a+b,home)
             print "\nCompleted\n"
     except:
-        print "\n Did something else happen ?  \n"
+        print "\n  SKIP: the file may already exist \n"
 
 
 def oreilly(accept):
@@ -1208,8 +1220,8 @@ if len(sys.argv) > 1:
             if i == 0:
                 continue
             if i <= 9:
-                connectivity()
+               # connectivity()
                 lva()
             else:
-                connectivity()
+               # connectivity()
                 lvb()
