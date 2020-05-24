@@ -2,10 +2,11 @@ import requests
 import h11
 #import re
 import wget
-import urllib3
+import urllib
 import sys
 import os
-
+from bs4 import BeautifulSoup 
+import lxml
 
 year = 1958
 vol  = 1
@@ -15,11 +16,18 @@ link = "https://dl.acm.org/toc/cacm/"+ str(year) +  "/" + str(vol) + "/" + str(n
 print (link)
 initial = requests.get(link, allow_redirects=True)
 #print(initial)
-open('hello.txt', 'wb').write(initial.content)
 
-dpage = open("hello.txt" , "rt") 
+open("index.html", 'wb').write(initial.content)
+# print (index)
+dpage = open("index.html" , "rt") 
 contents = dpage.read()      # read the entire file into a string
 dpage.close()   
+
+with open("index.html") as fp:
+    soup = BeautifulSoup(fp, "lxml")
+
+
+
 strfile = contents.find('doi')
 print (type(strfile))
 #newstr = strfile[4:10]
@@ -30,7 +38,26 @@ print (contents[343:362])
 newstr = contents[343:362]
 newcontents = newstr[5:]
 print (newcontents)
-newlink = "https://dl.acm.org/doi/pdf/" + newcontents + "." + "368689"
+
+
+
+#soup = BeautifulSoup(html, 'html.parser')
+documentname = soup.h5.span.contents[0]
+
+
+print (type(documentname))
+print (documentname)
+
+
+linknumber = 368689
+newlink = "https://dl.acm.org/doi/pdf/" + newcontents + "." + str(linknumber)
 print (newlink)
 solfile = requests.get(newlink, allow_redirects=True)
-open('hello', 'wb').write(solfile.content)
+open('bookname+"."+"pdf"', 'wb').write(solfile.content)
+
+for i in [1,2,3]:
+    linknumber = i + linknumber
+    newlink = "https://dl.acm.org/doi/pdf/" + newcontents + "." + str(linknumber)
+    print (newlink)
+    solfile = requests.get(newlink, allow_redirects=True)
+    open('hello', 'wb').write(solfile.content)
