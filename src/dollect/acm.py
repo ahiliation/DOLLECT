@@ -42,11 +42,11 @@ print (newcontents)
 
 
 #soup = BeautifulSoup(html, 'html.parser')
-documentname = soup.h5.span.contents[0]
-
+documentname = soup.find_all('h5')
+print (documentname[1].a.contents[0])
 
 print (type(documentname))
-print (documentname)
+#print (documentname)
 
 
 linknumber = 368689
