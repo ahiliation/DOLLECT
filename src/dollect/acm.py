@@ -42,9 +42,10 @@ print (newcontents)
 
 
 #soup = BeautifulSoup(html, 'html.parser')
-documentname = soup.find_all('h5')
-for name in len(documentname):
-    print (documentname[name].a.contents[0])
+#documentname = soup.find_all('h5')
+for x in [1,3,5,7]:
+    documentname = soup.find_all('h5')
+    print (documentname[x].a.contents[0])
 
 print (type(documentname))
 #print (documentname)
