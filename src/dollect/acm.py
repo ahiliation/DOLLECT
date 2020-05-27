@@ -11,6 +11,8 @@ import lxml
 year = 1958
 vol  = 1
 no = 1
+y = 3
+
 
 link = "https://dl.acm.org/toc/cacm/"+ str(year) +  "/" + str(vol) + "/" + str(no)
 print (link)
@@ -55,11 +57,12 @@ linknumber = 368689
 newlink = "https://dl.acm.org/doi/pdf/" + newcontents + "." + str(linknumber)
 print (newlink)
 solfile = requests.get(newlink, allow_redirects=True)
-open('bookname+"."+"pdf"', 'wb').write(solfile.content)
+open(documentname[1].a.contents[0] + "." + "pdf", 'wb').write(solfile.content)
 
 for i in [1,2,3]:
     linknumber = i + linknumber
     newlink = "https://dl.acm.org/doi/pdf/" + newcontents + "." + str(linknumber)
     print (newlink)
     solfile = requests.get(newlink, allow_redirects=True)
-    open('hello', 'wb').write(solfile.content)
+    open(documentname[y].a.contents[0] + "." + "pdf", 'wb').write(solfile.content)
+    y = y + 2
