@@ -1,6 +1,6 @@
 <.Dollect.> 
 
-Collecting free information from web.
+Collecting  information from web.
 
 USAGE :
 
@@ -14,21 +14,24 @@ python src/dollect/gnu-linuxvoice.py lv <issue number>
 python src/dollect/gnu-linuxvoice.py oreilly 
 
 [To download files from GNU project]
-python src/dollect/gnu-linuxvoice.py [gcc]
-                  [gdb]
-		  [archiving]
-		  [audio]
-		  [database]
-		  [dictionaries]
-		  [doculation]
-		  [editor]
-		  [education]
-		  [email]
-		  [font]
-		  [organization]
-		  [game]
-		  [graphics]
-		  [health]
+python src/dollect/gnu-linuxvoice.py [OPTION] 
+
+OPTIONS
+
+gdb 
+archiving 
+audio 
+database 
+dictionaries 
+doculation 
+editor 
+education 
+email 
+font 
+organization 
+game
+graphics 
+health
 		  
 [To download a collection of text files from GNU project]
 python src/dollect/gnu-linuxvoice.py alltext
@@ -40,4 +43,5 @@ python src/dollect/gnu-linuxvoice.py tldp
 python src/dollect/gnu-linuxvoice.py floss
 
 
+[ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 
 [ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 
