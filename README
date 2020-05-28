@@ -1,4 +1,4 @@
-<.Dollect.> 
+DOLLECT 
 
 Collecting  information from web.
 
@@ -43,5 +43,4 @@ python src/dollect/gnu-linuxvoice.py tldp
 python src/dollect/gnu-linuxvoice.py floss
 
 
-[ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 
 [ THIS PROJECT COMES WITH ABSOLUTELY NO WARRANTY TO THE EXTENT PERMITTED BY APPLICABLE LAW ] 
