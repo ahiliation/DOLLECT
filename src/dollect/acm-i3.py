@@ -1,6 +1,6 @@
 import requests
 import h11
-#import re
+import re
 import wget
 import urllib
 import sys
@@ -49,6 +49,10 @@ newlink = "https://dl.acm.org/doi/pdf/" + newcontents + "." + str(linknumber)
 #newlink = "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.15.tar.xz"
 r = requests.get(newlink, allow_redirects=True, stream=True)
 total_size = int(r.headers.get('content-length', 0))
+#pdfname = str((r.headers['Content-Disposition']))
+#pdfname = pdfname[17:]
+#print (pdfname)
+
 print (total_size)
 block_size = 1024 #1 Kibibyte                                                                                          
 t=tqdm(total=total_size, unit='B', unit_scale=True)
