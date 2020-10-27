@@ -4,11 +4,13 @@ Collecting free  information from web.
 
 USAGE :
 
+Use python 3 series.
+
 [To download 32 free issues of LINUXVOICE]
-python3 stable/linuxvoice.py lv
+python linuxvoice.py lv
 
 [To select and download  1 free  issue] 
-python3 stable/linuxvoice.py lv <issue number>
+python linuxvoice.py lv <issue number>
 
 
 
