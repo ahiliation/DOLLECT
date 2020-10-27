@@ -5,10 +5,10 @@ Collecting free  information from web.
 USAGE :
 
 [To download 32 free issues of LINUXVOICE]
-python stable/linuxvoice.py lv
+python3 stable/linuxvoice.py lv
 
 [To select and download  1 free  issue] 
-python stable/linuxvoice.py lv <issue number>
+python3 stable/linuxvoice.py lv <issue number>
 
 
 
