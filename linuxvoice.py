@@ -58,7 +58,7 @@ def lva():
         if (i >= 1 and i <= 9):
             if os.path.exists(stringg+d):
                 exit()
-            filename = wget.download(c+d,home)
+            filename = wget.download(c+d)
     except:
         print ("\n SKIP: the file may elready exist \n")
     
