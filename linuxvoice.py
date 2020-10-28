@@ -53,10 +53,10 @@ def lva():
     c = stringc  + str(i)  + stringd 
     d =  str(i) + stringb
    # home = str(Path.home())
-    home = expanduser("~")
+ #   home = expanduser("~")
     try:
         if (i >= 1 and i <= 9):
-            if os.path.exists(home+"/"+stringg+d):
+            if os.path.exists(stringg+d):
                 exit()
             filename = wget.download(c+d,home)
     except:
@@ -67,22 +67,22 @@ def lvb():
     stringf = "http://www.linuxvoice.com/issues/0"
     stringh = "Linux-Voice-Issue-0"
    # home = str(Path.home())
-    home = expanduser("~")
+   #  home = expanduser("~")
     if (i > 27 and i <= 32):
         stringf = "http://www.linuxvoice.com/issues/"
         a = stringf
         b = stringe + str(i) + stringb
-        if os.path.exists(home+"/"+b):
+        if os.path.exists(b):
             print ("\n SKIP: the file may elready exist \n")
             exit()
-        filename = wget.download(a+b,home)
+        filename = wget.download(a+b)
     else:
         a = stringf + str(i)  + stringe
         b = str(i) + stringb
-        if os.path.exists(home+"/"+stringh+b):
+        if os.path.exists(stringh+b):
             print ("\n SKIP: the file may elready exist \n")
             exit()
-        filename = wget.download(a+b,home)
+        filename = wget.download(a+b)
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "lv" and len(sys.argv) == 3:
