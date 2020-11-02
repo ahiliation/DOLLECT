@@ -1,6 +1,6 @@
-## DOLLECT
+# DOLLECT
 
-##### collecting free informtion from web
+### collecting free informtion from web
 
 ### USAGE :
 
