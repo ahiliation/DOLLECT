@@ -1,15 +1,15 @@
 ## DOLLECT
 
-###### collecting free informtion from web
+##### collecting free informtion from web
 
 ### USAGE :
 
 
-###[To download 32 free issues of LINUXVOICE]
-####python linuxvoice.py lv
+### [To download 32 free issues of LINUXVOICE]
+#### python linuxvoice.py lv
 
-###[To select and download  1 free  issue] 
-####python linuxvoice.py lv \<issue number\>
+### [To select and download  1 free  issue] 
+#### python linuxvoice.py lv \<issue number\>
 
 
 
