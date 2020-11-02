@@ -1,6 +1,6 @@
-DOLLECT 
+<ins>__DOLLECT__</ins>
 
-Collecting free  information from web.
+### Collecting free  information from web.
 
 USAGE :
 
