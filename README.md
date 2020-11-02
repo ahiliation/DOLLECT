@@ -1,6 +1,6 @@
 <ins>__DOLLECT__</ins>
 
-* collecting  LINUXVOICE issue from web
+* collecting free magazine/journal from internet
 
 <ins>__USAGE :__</ins>
 
